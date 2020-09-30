@@ -1,13 +1,4 @@
-
-
-
-/* *****************************************************************************
-TITLE
-*******************************************************************************/
-
-/* --------------------------------------------------------- TITLE - STYLE */
-
-
+/******************************************************************************* HTML */
 body {
   /*background-color: #0E0E0E;*/
   background-color: #346a99;
@@ -16,110 +7,74 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
   font-family: sans-serif;
 }
-
-#header {
-  text-align: center;
-  position: relative;
-  margin-top: 10%;
-}
-#title{
-  font-size: 20px;
-  font-weight: bold;
-}
-#subtitle{
-  font-size: 15px;
-  font-style: italic;
-}
-
-#body{
-  margin-left: 20%;
-}
-
-
-
-
-/**/
 #CONTAINER{
-  background-color: blue;
   margin-left: 20%;
   margin-right: 20%;
 }
 
+
+/******************************************************************************* function buildRuleElement */
+.rulesElement_container_{
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: pink;
+}
+.rulesElement_title_{
+  position: relative;
+  font-size: 12px;
+  font-weight: bolder;
+  margin-bottom: 3px;
+  margin-top: 10px;
+}
+.rulesElement_content_{
+  position: relative;
+  font-size: 11px;
+  font-weight: lighter;
+}
+.rulesElement_scaleContainer_{
+  position: relative;
+  height: 12px;
+}
+.rulesElement_min_{
+  position: absolute;
+  font-size: 11px;
+  font-weight: bold;
+}
+.rulesElement_max_{
+  position: absolute;
+  font-size: 11px;
+  font-weight: bold;
+  right: 0;
+}
+
+
+/******************************************************************************* class tlxRules */
 .tlxRules_container_ {
   background-color: white;
   position: relative;
-  height: 60px;
+  height: 40px;
   width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  cursor: pointer;
 }
-
-/* slider */
 .tlxRules_slider_{
-  /*-webkit-appearance: none;  /* Override default CSS styles */
-  /*appearance: none;*/
-  width: 100%; /* Full-width */
-  height: 40px; /* Specified height */
-  /*background: #d3d3d3;  Grey background */
-  /*outline: none;  Remove outline */
-  /*opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
-  background: transparent; /* Otherwise white in Chrome */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
-  cursor: pointer;
-  margin-left: 0px;
+  position: relative;
+  width: 14px;
+  height: 39px;
+  background-color: blue;
+  opacity: 0.2;
+  margin-left:-6px;
 }
-
-.tlxRules_slider_::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 40px;
+.tlxRules_slider_line_{
   width: 2px;
-  background: red;
-  cursor: pointer;
-  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  border: 0px;
+  height: 100%;
+  position: relative;
+  background-color: red;
+  opacity: 0.6;
 }
-
-/* All the same stuff for Firefox */
-.tlxRules_slider_::-moz-range-thumb {
-  height: 40px;
-  width: 2px;
-  background: red;
-  cursor: pointer;
-  border: 0px;
-}
-
-/* All the same stuff for IE */
-.tlxRules_slider_::-ms-thumb {
-  border: 0px;
-  height: 40px;
-  width: 2px;
-  background: red;
-  cursor: pointer;
-}
-
-
-
-.tlxRules_slider_:focus {
-  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-}
-
-.tlxRules_slider_::-ms-track {
-  width: 100%;
-  cursor: pointer;
-  /* Hides the slider so custom styles can be added */
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-
-
-
-
-
 /*gridline*/
 .tlxRules_baseGridline_ {
   background-color: black;
