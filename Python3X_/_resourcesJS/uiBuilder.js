@@ -3,7 +3,7 @@
 ********************************************************************************
 
 
-ui.js
+uiBuilder.js
 
 Ici gestion de l'interface utilisateur et des modules permettant l'affichage de l'application
 
@@ -12,10 +12,7 @@ Ici gestion de l'interface utilisateur et des modules permettant l'affichage de 
 :: VARIABLES ::
 
 
-:: INITIALISATION ::
-
-
-:: HOMEPAGE ::
+:: APP.PAGE.HOMEPAGE ::
 
 
 :: APP.PAGE.RULES ::
@@ -41,13 +38,11 @@ Ici gestion de l'interface utilisateur et des modules permettant l'affichage de 
 
 
 
-/******************************************************************************* APP.PAGE.RULES */
 
 
 
-/******************************************************************************* TOOLS */
 
-
+/******************************************************************************* VARIABLES */
 
 var _FRcontent = {
   mental:{title:"Exigence Mentale", content:"Quelle a été l’importance de l’activité mentale et intellectuelle requise (ex. réflexion, décision, calcul, mémorisation, observation, recherche etc.) ? La tâche vous a-t-elle paru simple, nécessitant peu d’attention (faible) ou complexe, nécessitant beaucoup d’attention (élevée) ?", scaleMin:"Faible", scaleMax:"Elevée"},
@@ -69,22 +64,44 @@ var _ENcontent = {
 
 
 
+/******************************************************************************* APP.PAGE.HOMEPAGE */
+
+function buildHomepage(){
+  addElement("div", document.getElementById("CONTAINER"), "pathElement_container");
+  addElement("input", document.getElementById("pathElement_container"), "pathInput");
+  addElement("BUTTON", document.getElementById("pathElement_container"), "pathSelectButton", "None", "Choose");
+  addElement("input", document.getElementById("CONTAINER"), "profilNameElement");
+  addElement("input", document.getElementById("CONTAINER"), "groupNameElement");
+  addElement("input", document.getElementById("CONTAINER"), "participantIdElement");
+  addElement("div", document.getElementById("CONTAINER"), "submit_container");
+  addElement("BUTTON", document.getElementById("submit_container"), "shortButton", "None", "Short");
+  addElement("BUTTON", document.getElementById("submit_container"), "longButton", "None", "Long");
+  /*
+  btnShort = document.createElement("BUTTON");
+  btnShort.innerHTML = "SHORT";
+  document.getElementById("CONTAINER").appendChild(btnShort);
+  btnLong = document.createElement("BUTTON");
+  btnLong.innerHTML = "LONG";
+  document.getElementById("CONTAINER").appendChild(btnLong);
+  */
+}
 
 
 
+/******************************************************************************* APP.PAGE.RULES */
 
-/* Class de construction de l'affichage graphique d'une règle avec curseur pour la saisie des donnée de l'interface
-*
-*     > constructor (rulename) ------------------------------------------------- constructeur de la class || args :: rulename = nom du critère NTLX issue de tlx.js > var criterias
-*     > buildRules(parentObject) ----------------------------------------------- Création des éléments HTML constitutif de la règle curseur enfant de "parentObject"
-*
-*/
 class tlxRules{
+
+  /* Class de construction de l'affichage graphique d'une règle avec curseur pour la saisie des donnée de l'interface
+  *
+  *     > constructor (rulename) ------------------------------------------------- constructeur de la class || args :: rulename = nom du critère NTLX issue de tlx.js > var criterias
+  *     > buildRules(parentObject) ----------------------------------------------- Création des éléments HTML constitutif de la règle curseur enfant de "parentObject"
+  *
+  */
 
   constructor(rulename){
     this.rulename = rulename;
   }
-
   buildRules(parentObject){
     var rulesID = this.rulename;
     // Build container
@@ -155,10 +172,8 @@ class tlxRules{
       console.log(scores)
     });
   }
+
 }
-
-
-
 
 function buildRuleElement(criteria, content, rules){
   // Build container
@@ -178,6 +193,57 @@ function buildRuleElement(criteria, content, rules){
 }
 
 
+
+/******************************************************************************* APP.PAGE.WEIGHT */
+
+
+// Fill the two criterias' container and allow to fill the selectedCriteria with a click on the element
+function buildWeightModule(parent, pairs){
+  // Create UI element
+  addElement("div", parent, "weightChoice_element1_"+pairs[0], "weightChoice_element1_ weightChoice_element", pairs[0]);
+  addElement("div", parent, "weightChoice_sepaline");
+  addElement("div", parent, "weightChoice_element2_"+pairs[1], "weightChoice_element2_ weightChoice_element", pairs[1]);
+  // select element on click
+  document.getElementById("weightChoice_element1_"+pairs[0]).addEventListener("click", function(){selectedCriteria = pairs[0]});
+  document.getElementById("weightChoice_element2_"+pairs[1]).addEventListener("click", function(){selectedCriteria = pairs[1]});
+}
+// Creation of the list of all pairs possible
+function findAllPair(mylist){
+  // empty pool of pair
+  pairs = [];
+  // for every criteria in the list of selected criterias
+  for (element in mylist){
+    // counter to evaluate the position of the element in the list
+    var counter = element;
+    // loop to make a pair with every element of the list positionate after the counter
+    while (counter<mylist.length){
+      // only to supress double
+      if (element != counter){
+        // add the pair to the pool
+        pairs.push([mylist[element], mylist[counter]])
+      }
+      // increment counter
+      counter ++;
+    }
+  }
+  // return result
+  return pairs;
+}
+// Randomise the list
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
 
 
 

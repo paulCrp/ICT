@@ -1,6 +1,5 @@
 <!DOCTYPE RCC><RCC version="1.0">
  <qresource>
-     <file>homepagetest.js</file>
      <file>tlx.js</file>
      <file>uiBuilder.js</file>
      <file>uiManager.js</file>

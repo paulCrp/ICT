@@ -3,9 +3,9 @@ TO DO
 v. analyse de l'armature
 v. crea de dossier en fonction de l'expe
 -. crea .csv par participant
--. crea .csv de tt les participants
--. modif de fichier tt les participants
--.add file readme explication
+v. crea .csv de tt les participants
+v. modif de fichier tt les participants
+-.add file readme explication des table de score
 '''
 
 
