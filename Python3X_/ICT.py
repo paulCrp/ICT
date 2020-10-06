@@ -19,6 +19,11 @@ import _resourcesJS
 '''
 
 
+# Find current path for the app
+mypath = pathlib.Path(__file__).parent.absolute()
+#Rename path
+mypath = str(mypath).replace("\\", "/")
+
 
 # Js debugger for python console
 class WebEnginePage(QWebEnginePage):
@@ -42,13 +47,13 @@ def getConfigFileValue():
     # creation of config object
     config = ConfigParser()
     # read config file
-    config.read('_config.ini')
+    a= config.read(mypath+'/_config.ini')
     # return resultPath value
     return config.get('PATH','resultpath').replace('"', '').replace('\\', '/');
 # set config file value
 def setConfigFileValue(myvalue):
     config = ConfigParser()
-    config.read('_config.ini')
+    config.read(mypath+'/_config.ini')
     # set value
     config.set("PATH", "resultpath", myvalue)
 
@@ -75,10 +80,6 @@ if __name__ == '__main__':
     webBrowser.page().setWebChannel(channel)
     channel.registerObject("feedback_scores", feedback_scores)
 
-    #Find current path
-    mypath = pathlib.Path(__file__).parent.absolute()
-    #Rename path
-    mypath = str(mypath).replace("\\", "/")
     #load .html file
     webBrowser.load(QUrl(mypath+"/_app/index.html"))
 

@@ -1,0 +1,162 @@
+/******************************************************************************* HTML */
+body {
+  /*background-color: #0E0E0E;*/
+  background-color: #346a99;
+  color: black;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+}
+#CONTAINER{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+
+/******************************************************************************* function buildRuleElement */
+.rulesElement_container_{
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: pink;
+}
+.rulesElement_title_{
+  position: relative;
+  font-size: 12px;
+  font-weight: bolder;
+  margin-bottom: 3px;
+  margin-top: 10px;
+}
+.rulesElement_content_{
+  position: relative;
+  font-size: 11px;
+  font-weight: lighter;
+}
+.rulesElement_scaleContainer_{
+  position: relative;
+  height: 12px;
+}
+.rulesElement_min_{
+  position: absolute;
+  font-size: 11px;
+  font-weight: bold;
+}
+.rulesElement_max_{
+  position: absolute;
+  font-size: 11px;
+  font-weight: bold;
+  right: 0;
+}
+
+
+/******************************************************************************* class tlxRules */
+.tlxRules_container_ {
+  background-color: white;
+  position: relative;
+  height: 40px;
+  width: 100%;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.tlxRules_slider_{
+  position: relative;
+  width: 14px;
+  height: 39px;
+  background-color: blue;
+  opacity: 0.2;
+  margin-left:-6px;
+}
+.tlxRules_slider_line_{
+  width: 2px;
+  height: 100%;
+  position: relative;
+  background-color: red;
+  opacity: 0.6;
+}
+/*gridline*/
+.tlxRules_baseGridline_ {
+  background-color: black;
+  position:absolute;
+  height: 1px;
+  width: 100%;
+  bottom: 0;
+}
+.tlxRules_strongGridline_{
+  background-color: black;
+  position:absolute;
+  height: 25px;
+  width: 1px;
+  bottom: 0;
+}
+.tlxRules_lightGridline_{
+  background-color: black;
+  position:absolute;
+  height: 10px;
+  width: 1px;
+  bottom: 0;
+}
+.tlxRules_Gridline1_{
+  left:0;
+}
+.tlxRules_Gridline2_{
+  left:5%;
+}
+.tlxRules_Gridline3_{
+  left:10%;
+}
+.tlxRules_Gridline4_{
+  left:15%;
+}
+.tlxRules_Gridline5_{
+  left:20%;
+}
+.tlxRules_Gridline6_{
+  left:25%;
+}
+.tlxRules_Gridline7_{
+  left:30%;
+}
+.tlxRules_Gridline8_{
+  left:35%;
+}
+.tlxRules_Gridline9_{
+  left:40%;
+}
+.tlxRules_Gridline10_{
+  left:45%;
+}
+.tlxRules_Gridline11_{
+  left:50%;
+}
+.tlxRules_Gridline12_{
+  left:55%;
+}
+.tlxRules_Gridline13_{
+  left:60%;
+}
+.tlxRules_Gridline14_{
+  left:65%;
+}
+.tlxRules_Gridline15_{
+  left:70%;
+}
+.tlxRules_Gridline16_{
+  left:75%;
+}
+.tlxRules_Gridline17_{
+  left:80%;
+}
+.tlxRules_Gridline18_{
+  left:85%;
+}
+.tlxRules_Gridline19_{
+  left:90%;
+}
+.tlxRules_Gridline20_{
+  left:95%;
+}
+.tlxRules_Gridline21_{
+  left:100%;
+}
