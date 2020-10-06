@@ -31,6 +31,10 @@ function showRules(){
   for (var i =0; i<criterias.length; i++){
     buildRuleElement(criterias[i], _FRcontent, rules)
   }
+  btnChannelToPython = document.createElement("BUTTON");
+  btnChannelToPython.innerHTML = "SEND";
+  document.getElementById("CONTAINER").appendChild(btnChannelToPython);
+  btnChannelToPython.addEventListener("click", function(){sendDatasToPython()});
   /*
   for (let i = 0; i < 6; i++) {
     rules[i].buildRules(document.getElementById("CONTAINER"));
@@ -38,12 +42,25 @@ function showRules(){
   */
 }
 
+var feedback_scores = null;
+
+// Fonction d'envoie des donnée à python
+function sendDatasToPython(){
+  // Création du channel
+  new QWebChannel(qt.webChannelTransport, function(channel) {
+    // Construction de l'object "channel"
+    feedback_scores = channel.objects.feedback_scores;
+    // Fonction d'envoi des données
+    feedback_scores.getRef(JSON.stringify(scores));
+  });
+}
+
 
 
 function _init(){
   buildhomepage()
   btnShort.addEventListener("click", function(){loadNewTest()});
-  btnLong.addEventListener("click", function(){loadNewTest("long")});
+  btnLong.addEventListener("click", function(){sendDatasToPython()});
 }
 
 _init();

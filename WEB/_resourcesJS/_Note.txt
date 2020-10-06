@@ -1,0 +1,8 @@
+Note for Dev Team
+
+command in cmd to make ressource.py file from .qrc file :
+
+pyrcc5 -o _resourcesJS.py _resourcesJS/_resources.qrc
+
+=> ! besoin de réimporter les ressources à chaque modif d'une des ressources!
+penser à retirer le rightclick menu
