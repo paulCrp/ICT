@@ -62,7 +62,22 @@ function sendDatasToPython(){
     feedback_scores.getRef(JSON.stringify(scores));
   });
 }
-
+/******************************************************************************* Score Calculation */
+// Create score button
+addElement("div", document.getElementById("CONTAINER"), "weightChoice_score", "None", "Score");
+buttonScore = document.getElementById("weightChoice_score");
+buttonScore.addEventListener("click", function(){
+// Assign score brut and weight to variables
+    var scoreBrut = [45, 80, 25, 70, 100, 15];
+    var scoreWeight = [0, 3, 4, 3, 3, 2];
+// Merge score brut and weight in one array
+    var totalScore = mergeScore(scoreBrut, scoreWeight);
+    console.log(totalScore);
+// NASA TLX score calculation
+    var result = scoreCalculation(totalScore);
+    console.log(result);
+  }
+);
 
 
 /******************************************************************************* WEIGHT PAGE */

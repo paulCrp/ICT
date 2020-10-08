@@ -245,7 +245,34 @@ function shuffle(array) {
   return array;
 }
 
+/******************************************************************************* Score Calcultation */
+// Round number to 5
+function round(score){
 
+  return Math.round(score/5)*5;
+}
+// Merge two list in one array
+function mergeScore(scoreBrut, weightScore){
+  var mergedScore = [];
+  for (element in criterias){
+// Push in array brut score, weight score and brut score rounded
+    mergedScore.push([scoreBrut[element], weightScore[element], round(scoreBrut[element])]);
+  }
+
+  return mergedScore;
+}
+// Calculation of the weighted average of score with the weight and the rounded score
+function scoreCalculation(scoreList){
+  var scoreTotal = 0;
+  var coef = 0;
+  for(element in scoreList){
+    scoreTotal = scoreTotal + scoreList[element][1] * scoreList[element][2];
+    coef = coef + scoreList[element][1];
+  }
+  scoreTotal = scoreTotal / coef;
+
+  return scoreTotal;
+}
 
 /******************************************************************************* TOOLS */
 
