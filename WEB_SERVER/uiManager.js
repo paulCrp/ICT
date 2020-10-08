@@ -1,19 +1,47 @@
 
+/******************************************************************************* VARIABLE */
+
+// variable de stockage des object contenant chaque règles
+var ruleObjects;
+// choosen criteria = settled to first at the begining
+var selectedCriteria = "First";
+// Selection du langage par defaut
+var _selectedLangageContent;
+
 
 /******************************************************************************* INIT */
 
+_init();
+
 function _init(){
-  buildHomepage()
-  document.getElementById("shortButton").addEventListener("click", function(){loadNewTest()});
-  document.getElementById("longButton").addEventListener("click", function(){showWeightComparaison()});
+  showHomepage();
+  _selectedLangageContent = _FRcontent;
 }
 
-_init();
+
+
+/******************************************************************************* HOME PAGE */
+
+function showHomepage(){
+  // Build structure
+  buildHomepage()
+  // Link to other functions
+  document.getElementById("shortButton").addEventListener("click", function(){
+    document.body.style.background = "white";
+    loadNewTest()
+  });
+  document.getElementById("longButton").addEventListener("click", function(){
+    document.body.style.background = "white";
+    showWeightComparaison()
+  });
+  // additional UI
+  document.getElementById("HEADER").innerHTML = "";
+  document.getElementById("HEADER").style.background = "transparent";
+}
 
 
 
 /******************************************************************************* RULES PAGE */
-var rules = "NotSetYet";
 
 function loadNewTest(version="short"){
   //clear div container
@@ -25,19 +53,16 @@ function loadNewTest(version="short"){
   let performance_rule = new tlxRules(criterias[3]);
   let effort_rule = new tlxRules(criterias[4]);
   let frustration_rule = new tlxRules(criterias[5]);
-
-  rules = {mental:mental_rule, physical:physical_rule, temporal:temporal_rule, performance:performance_rule, effort:effort_rule, frustration:frustration_rule};
-
+  ruleObjects = {Mental:mental_rule, Physical:physical_rule, Temporal:temporal_rule, Performance:performance_rule, Effort:effort_rule, Frustration:frustration_rule};
   if (version == "long"){
     /* initiation de la version longue */
   }
-
   showRules();
 }
 
 function showRules(){
   for (var i =0; i<criterias.length; i++){
-    buildRuleElement(criterias[i], _FRcontent, rules)
+    buildRuleElement(document.getElementById("CONTAINER"), criterias[i], _selectedLangageContent, ruleObjects)
   }
   btnChannelToPython = document.createElement("BUTTON");
   btnChannelToPython.innerHTML = "SEND";
@@ -50,8 +75,7 @@ function showRules(){
   */
 }
 
-var feedback_scores = null;
-
+var feedback_scores = null; // ! possible de suprimer??
 // Fonction d'envoie des donnée à python
 function sendDatasToPython(){
   // Création du channel
@@ -72,16 +96,12 @@ function showWeightComparaison(){
   //clear div container
   document.getElementById("CONTAINER").innerHTML = "";
 
-  // Initialization of associated scores to criterias
-  var weightScore = {mental:0, physical:0, temporal:0, performance:0, effort:0, frustration:0};
   // Creation of the list of pairs and shuffle
   var allPairs = findAllPair(criterias);
   allPairs = shuffle(allPairs);
 
   // counter made to show all pair from allPairs list
   var pairCounter = 0;
-  // choosen criteria = None by default
-  var selectedCriteria = "First";
 
   // Creation of container for criterias and submit button
   addElement("div", document.getElementById("CONTAINER"), "weightChoice_container");
@@ -93,21 +113,23 @@ function showWeightComparaison(){
     if(selectedCriteria != "None"){
       // icrement counter
       pairCounter++;
-      // re-initialize value of selected criteria
-      selectedCriteria = "None"
       // show next pair
       showPairs(allPairs, pairCounter);
-      console.log(weightScore);
+      console.log(weightScores);
     }
     else{
+      console.log(selectedCriteria)
       alert("Veuillez sélectionner un choix...");
     }
+
+    // re-initialize value of selected criteria
+    selectedCriteria = "None"
   }
   // Show a pair from 'mylist' at 'myIndex'
   function showPairs(myList, myIndex){
     // If it's not the first item
     if (selectedCriteria != "First"){
-      weightScore[selectedCriteria]+=1;
+      weightScores[selectedCriteria]+=1;
     }
     // delete content of the module container
     document.getElementById("weightChoice_container").innerHTML = "";
@@ -117,7 +139,7 @@ function showWeightComparaison(){
       buildWeightModule(document.getElementById("weightChoice_container"), myList[myIndex]);
     }
     else{
-      console.log(weightScore);
+      console.log(weightScores);
       alert("test terminé");
     }
   }

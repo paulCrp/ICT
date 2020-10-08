@@ -45,21 +45,21 @@ Ici gestion de l'interface utilisateur et des modules permettant l'affichage de 
 /******************************************************************************* VARIABLES */
 
 var _FRcontent = {
-  mental:{title:"Exigence Mentale", content:"Quelle a été l’importance de l’activité mentale et intellectuelle requise (ex. réflexion, décision, calcul, mémorisation, observation, recherche etc.) ? La tâche vous a-t-elle paru simple, nécessitant peu d’attention (faible) ou complexe, nécessitant beaucoup d’attention (élevée) ?", scaleMin:"Faible", scaleMax:"Elevée"},
-  physical:{title:"Exigence Physique", content:"Quelle a été l’importance de l’activité physique requise (ex. pousser, porter, tourner, marcher, activer, etc.) ? La tâche vous a-t-elle paru facile, peu fatigante, calme (faible) ou pénible, fatigante, active (élevée) ?", scaleMin:"Faible", scaleMax:"Elevée"},
-  temporal:{title:"Exigence Temporelle", content:"Quelle a été l’importance de la pression temporelle causée par la rapidité nécessitée pour l’accomplissement de la tâche ? Etait-ce un rythme lent et tranquille (faible) ou rapide et précipité (élevé) ?", scaleMin:"Faible", scaleMax:"Elevée"},
-  performance:{title:"Performance", content:"Quelle réussite pensez-vous avoir eu dans l’accomplissement de votre tâche ? Comment pensez-vous avoir atteint les objectifs déterminés par la tâche ?", scaleMin:"Bonne", scaleMax:"Mauvaise"},
-  effort:{title:"Effort", content:"Quel degré d’effort avez-vous dû fournir pour exécuter la tâche demandée, (mentalement et physiquement) ?", scaleMin:"Faible", scaleMax:"Elevée"},
-  frustration:{title:"Frustration", content:"Pendant l’exécution du travail vous êtes-vous senti satisfait, relaxé, sûr de vous (niveau de frustration faible), ou plutôt découragé, irrité, stressé, sans assurance (niveau de frustration élevé) ?", scaleMin:"Faible", scaleMax:"Elevée"}
+  Mental:{title:"Exigence Mentale", content:"Quelle a été l’importance de l’activité mentale et intellectuelle requise (ex. réflexion, décision, calcul, mémorisation, observation, recherche etc.) ? La tâche vous a-t-elle paru simple, nécessitant peu d’attention (faible) ou complexe, nécessitant beaucoup d’attention (élevée) ?", scaleMin:"Faible", scaleMax:"Elevée"},
+  Physical:{title:"Exigence Physique", content:"Quelle a été l’importance de l’activité physique requise (ex. pousser, porter, tourner, marcher, activer, etc.) ? La tâche vous a-t-elle paru facile, peu fatigante, calme (faible) ou pénible, fatigante, active (élevée) ?", scaleMin:"Faible", scaleMax:"Elevée"},
+  Temporal:{title:"Exigence Temporelle", content:"Quelle a été l’importance de la pression temporelle causée par la rapidité nécessitée pour l’accomplissement de la tâche ? Etait-ce un rythme lent et tranquille (faible) ou rapide et précipité (élevé) ?", scaleMin:"Faible", scaleMax:"Elevée"},
+  Performance:{title:"Performance", content:"Quelle réussite pensez-vous avoir eu dans l’accomplissement de votre tâche ? Comment pensez-vous avoir atteint les objectifs déterminés par la tâche ?", scaleMin:"Bonne", scaleMax:"Mauvaise"},
+  Effort:{title:"Effort", content:"Quel degré d’effort avez-vous dû fournir pour exécuter la tâche demandée, (mentalement et physiquement) ?", scaleMin:"Faible", scaleMax:"Elevée"},
+  Frustration:{title:"Frustration", content:"Pendant l’exécution du travail vous êtes-vous senti satisfait, relaxé, sûr de vous (niveau de frustration faible), ou plutôt découragé, irrité, stressé, sans assurance (niveau de frustration élevé) ?", scaleMin:"Faible", scaleMax:"Elevée"}
 };
 
 var _ENcontent = {
-  mental:{title:"Mental Demand", content:"How much mental and perceptual activity was required? Was the task easy or demanding, simple or complex?", scaleMin:"Low", scaleMax:"High"},
-  physical:{title:"Physical Demand", content:"How much physical activity was required? Was the task easy or demanding, slack or strenuous?", scaleMin:"Low", scaleMax:"High"},
-  temporal:{title:"Temporal Demand", content:"How much time pressure did you feel due to the pace at which the tasks or task elements occurred? Was the pace slow or rapid?", scaleMin:"Low", scaleMax:"High"},
-  performance:{title:"Performance", content:"How successful were you in performing the task? How satisfied were you with your performance?", scaleMin:"Low", scaleMax:"High"},
-  effort:{title:"Effort", content:"How hard did you have to work (mentally and physically) to accomplish your level of performance?", scaleMin:"Low", scaleMax:"High"},
-  frustration:{title:"Frustration", content:"How irritated, stressed, and annoyed versus content, relaxed, and complacent did you feel during the task?", scaleMin:"Low", scaleMax:"High"}
+  Mental:{title:"Mental Demand", content:"How much mental and perceptual activity was required? Was the task easy or demanding, simple or complex?", scaleMin:"Low", scaleMax:"High"},
+  Physical:{title:"Physical Demand", content:"How much physical activity was required? Was the task easy or demanding, slack or strenuous?", scaleMin:"Low", scaleMax:"High"},
+  Temporal:{title:"Temporal Demand", content:"How much time pressure did you feel due to the pace at which the tasks or task elements occurred? Was the pace slow or rapid?", scaleMin:"Low", scaleMax:"High"},
+  Performance:{title:"Performance", content:"How successful were you in performing the task? How satisfied were you with your performance?", scaleMin:"Low", scaleMax:"High"},
+  Effort:{title:"Effort", content:"How hard did you have to work (mentally and physically) to accomplish your level of performance?", scaleMin:"Low", scaleMax:"High"},
+  Frustration:{title:"Frustration", content:"How irritated, stressed, and annoyed versus content, relaxed, and complacent did you feel during the task?", scaleMin:"Low", scaleMax:"High"}
 };
 
 
@@ -76,14 +76,6 @@ function buildHomepage(){
   addElement("div", document.getElementById("CONTAINER"), "submit_container");
   addElement("BUTTON", document.getElementById("submit_container"), "shortButton", "None", "Short");
   addElement("BUTTON", document.getElementById("submit_container"), "longButton", "None", "Long");
-  /*
-  btnShort = document.createElement("BUTTON");
-  btnShort.innerHTML = "SHORT";
-  document.getElementById("CONTAINER").appendChild(btnShort);
-  btnLong = document.createElement("BUTTON");
-  btnLong.innerHTML = "LONG";
-  document.getElementById("CONTAINER").appendChild(btnLong);
-  */
 }
 
 
@@ -153,7 +145,7 @@ class tlxRules{
     addElement("div", tlxRules_container_, "tlxRules_Gridline21_"+rulesID, "tlxRules_Gridline21_ tlxRules_lightGridline_");
     // Build range slider
     tlxRules_container_.addEventListener("click", function(event){
-      /// Calculate position
+      /// Calculate actual position
       var mouseposOnclick = event.clientX;
       var posDiv = findAbsolutePos(tlxRules_container_)
       var sizeDiv = tlxRules_container_.offsetWidth;
@@ -174,10 +166,9 @@ class tlxRules{
   }
 
 }
-
-function buildRuleElement(criteria, content, rules){
+function buildRuleElement(parent, criteria, content, rules){
   // Build container
-  addElement("div", document.getElementById("CONTAINER"), "rulesElement_container_"+criteria, "rulesElement_container_");
+  addElement("div", parent, "rulesElement_container_"+criteria, "rulesElement_container_");
   // Build title
   addElement("div", document.getElementById("rulesElement_container_"+criteria), "rulesElement_title_"+criteria, "rulesElement_title_", content[criteria]["title"]);
   // Build content
@@ -192,6 +183,9 @@ function buildRuleElement(criteria, content, rules){
   addElement("div", document.getElementById("rulesElement_scaleContainer_"+criteria), "rulesElement_max_"+criteria, "rulesElement_max_", content[criteria]["scaleMax"]);
 }
 
+function buildRulePage(){
+
+}
 
 
 /******************************************************************************* APP.PAGE.WEIGHT */
@@ -200,12 +194,20 @@ function buildRuleElement(criteria, content, rules){
 // Fill the two criterias' container and allow to fill the selectedCriteria with a click on the element
 function buildWeightModule(parent, pairs){
   // Create UI element
-  addElement("div", parent, "weightChoice_element1_"+pairs[0], "weightChoice_element1_ weightChoice_element", pairs[0]);
+  addElement("div", parent, "weightChoice_element1_"+pairs[0], "weightChoice_element1_ weightChoice_element", _selectedLangageContent[pairs[0]]["title"]);
   addElement("div", parent, "weightChoice_sepaline");
-  addElement("div", parent, "weightChoice_element2_"+pairs[1], "weightChoice_element2_ weightChoice_element", pairs[1]);
+  addElement("div", parent, "weightChoice_element2_"+pairs[1], "weightChoice_element2_ weightChoice_element", _selectedLangageContent[pairs[1]]["title"]);
   // select element on click
-  document.getElementById("weightChoice_element1_"+pairs[0]).addEventListener("click", function(){selectedCriteria = pairs[0]});
-  document.getElementById("weightChoice_element2_"+pairs[1]).addEventListener("click", function(){selectedCriteria = pairs[1]});
+  document.getElementById("weightChoice_element1_"+pairs[0]).addEventListener("click", function(){
+    selectedCriteria = pairs[0];
+    console.log(selectedCriteria);
+    document.getElementById("weightChoice_element1_"+pairs[0]).style.color = "blue";
+  });
+  document.getElementById("weightChoice_element2_"+pairs[1]).addEventListener("click", function(){
+    selectedCriteria = pairs[1];
+    console.log(selectedCriteria);
+    document.getElementById("weightChoice_element2_"+pairs[1]).style.color = "blue";
+  });
 }
 // Creation of the list of all pairs possible
 function findAllPair(mylist){
@@ -245,6 +247,9 @@ function shuffle(array) {
   return array;
 }
 
+function buildWeightPage(){
+
+}
 
 
 /******************************************************************************* TOOLS */
@@ -315,12 +320,14 @@ function BUILD_INPUT(id="None", divClass="None", content="None"){
 }
 
 function addSliderCursor(parent, criteria, cursorStartPosition, id="None", divClass="None"){
+
   /* BUILD_SLIDERCURSOR() ---> Création du curseur du slider
   *
   *   > UI
   *   > Variables
   *   > Event
   *   > Functions
+  *     >> resetAbsolutPos()
   *     >> timer()
   *     >> pressingDown(event)
   *     >> notPressingDown(event)
@@ -367,9 +374,14 @@ function addSliderCursor(parent, criteria, cursorStartPosition, id="None", divCl
   slidercursor.addEventListener("mousedown", pressingDown, false);
   // Détection du déclick right mouse dans l'ensemble de la fenêtre
   document.body.addEventListener("mouseup", notPressingDown, false);
+  // if window.resize recalculate position ratio
+  window.addEventListener('resize', resetAbsolutPos)
+
 
   ////////////////////////////////////////////////////////////////////////////// Functions
 
+  // function to set the absolutePos element when the window resize :: called by event window resize
+  function resetAbsolutPos(){absolutePos = findAbsolutePos(parent)}
   // function de détection du hold
   function timer() {
     // set 60 fps listener
