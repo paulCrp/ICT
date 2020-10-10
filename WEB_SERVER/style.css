@@ -22,18 +22,104 @@ body {
 
 /******************************************************************************* Homepage */
 
+#pathElement_container{
+  position: relative;
+  display: block;
+}
+#profilNameElement{
+  position: relative;
+  display: block;
+}
+#groupNameElement{
+  position: relative;
+  display: block;
+}
+#participantIdElement{
+  position: relative;
+  display: block;
+}
+#submit_container{
+  position: relative;
+  display: block;
+}
 
 
 
+/******************************************************************************* advice element */
+
+.adviceElement_container_{
+  margin-top: 20px;
+  position: relative;
+  height: 40px;
+  width: 100%;
+}
+.adviceElement_content_{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: 20px;
+  height: 30px;
+  margin: 0px;
+  color: black;
+}
+.adviceElement_line_{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+.adviceElement_additionalNote_{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: 10px;
+  color: red;
+}
+
+
+
+/******************************************************************************* next Btn */
+
+.nextBtnElement_container_{
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  height: 100px;
+  line-height: 150px;
+}
+.nextBtnElement_content_{
+  position: relative;
+  width: auto;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  border: 2px solid black;
+  font-weight: 600;
+  color: black;
+
+  background-color: transparent;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin: 5px;
+  overflow: hidden;
+  padding: 0 22px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all .2s ease-in-out;
+}
 
 
 /******************************************************************************* WeightScoresModule */
 
-.weightChoice_container{
+#weightChoice_container{
   position: relative;
   width: 100%;
   height: 100%;
-  margin-top: 20%;
+  margin-top: 80px;
 }
 .weightChoice_element{
   position: relative;
@@ -55,16 +141,37 @@ body {
 }
 
 #weightChoice_submit{
+  /*
   position: relative;
   height: 20px;
   font-size: 18;
   width: 100px;
-  margin-top: 80px;
   background-color: black;
   color:white;
   margin: 0 auto;
   text-align: center;
   cursor: pointer;
+  */
+  position: relative;
+  width: auto;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  border: 2px solid black;
+  font-weight: 600;
+  color: black;
+
+  background-color: transparent;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin: 5px;
+  overflow: hidden;
+  padding: 0 22px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all .2s ease-in-out;
 }
 
 
@@ -73,7 +180,7 @@ body {
 .rulesElement_container_{
   position: relative;
   margin-top: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .rulesElement_title_{
   position: relative;
@@ -110,7 +217,7 @@ body {
   position: relative;
   height: 40px;
   width: 100%;
-  margin-top: 15px;
+  margin-top: 5px;
   cursor: pointer;
 }
 .tlxRules_slider_{
