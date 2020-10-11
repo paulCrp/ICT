@@ -45,22 +45,36 @@ Ici gestion de l'interface utilisateur et des modules permettant l'affichage de 
 /******************************************************************************* VARIABLES */
 
 var _FRcontent = {
-  mental:{title:"Exigence Mentale", content:"Quelle a été l’importance de l’activité mentale et intellectuelle requise (ex. réflexion, décision, calcul, mémorisation, observation, recherche etc.) ? La tâche vous a-t-elle paru simple, nécessitant peu d’attention (faible) ou complexe, nécessitant beaucoup d’attention (élevée) ?", scaleMin:"Faible", scaleMax:"Elevée"},
-  physical:{title:"Exigence Physique", content:"Quelle a été l’importance de l’activité physique requise (ex. pousser, porter, tourner, marcher, activer, etc.) ? La tâche vous a-t-elle paru facile, peu fatigante, calme (faible) ou pénible, fatigante, active (élevée) ?", scaleMin:"Faible", scaleMax:"Elevée"},
-  temporal:{title:"Exigence Temporelle", content:"Quelle a été l’importance de la pression temporelle causée par la rapidité nécessitée pour l’accomplissement de la tâche ? Etait-ce un rythme lent et tranquille (faible) ou rapide et précipité (élevé) ?", scaleMin:"Faible", scaleMax:"Elevée"},
-  performance:{title:"Performance", content:"Quelle réussite pensez-vous avoir eu dans l’accomplissement de votre tâche ? Comment pensez-vous avoir atteint les objectifs déterminés par la tâche ?", scaleMin:"Bonne", scaleMax:"Mauvaise"},
-  effort:{title:"Effort", content:"Quel degré d’effort avez-vous dû fournir pour exécuter la tâche demandée, (mentalement et physiquement) ?", scaleMin:"Faible", scaleMax:"Elevée"},
-  frustration:{title:"Frustration", content:"Pendant l’exécution du travail vous êtes-vous senti satisfait, relaxé, sûr de vous (niveau de frustration faible), ou plutôt découragé, irrité, stressé, sans assurance (niveau de frustration élevé) ?", scaleMin:"Faible", scaleMax:"Elevée"}
+  Mental:{title:"Exigence Mentale", content:"Quelle a été l’importance de l’activité mentale et intellectuelle requise (ex. réflexion, décision, calcul, mémorisation, observation, recherche etc.) ? La tâche vous a-t-elle paru simple, nécessitant peu d’attention (faible) ou complexe, nécessitant beaucoup d’attention (élevée) ?", scaleMin:"Faible", scaleMax:"Elevée"},
+  Physical:{title:"Exigence Physique", content:"Quelle a été l’importance de l’activité physique requise (ex. pousser, porter, tourner, marcher, activer, etc.) ? La tâche vous a-t-elle paru facile, peu fatigante, calme (faible) ou pénible, fatigante, active (élevée) ?", scaleMin:"Faible", scaleMax:"Elevée"},
+  Temporal:{title:"Exigence Temporelle", content:"Quelle a été l’importance de la pression temporelle causée par la rapidité nécessitée pour l’accomplissement de la tâche ? Etait-ce un rythme lent et tranquille (faible) ou rapide et précipité (élevé) ?", scaleMin:"Faible", scaleMax:"Elevée"},
+  Performance:{title:"Performance", content:"Quelle réussite pensez-vous avoir eu dans l’accomplissement de votre tâche ? Comment pensez-vous avoir atteint les objectifs déterminés par la tâche ?", scaleMin:"Bonne", scaleMax:"Mauvaise"},
+  Effort:{title:"Effort", content:"Quel degré d’effort avez-vous dû fournir pour exécuter la tâche demandée, (mentalement et physiquement) ?", scaleMin:"Faible", scaleMax:"Elevée"},
+  Frustration:{title:"Frustration", content:"Pendant l’exécution du travail vous êtes-vous senti satisfait, relaxé, sûr de vous (niveau de frustration faible), ou plutôt découragé, irrité, stressé, sans assurance (niveau de frustration élevé) ?", scaleMin:"Faible", scaleMax:"Elevée"}
+};
+var _ENcontent = {
+  Mental:{title:"Mental Demand", content:"How much mental and perceptual activity was required? Was the task easy or demanding, simple or complex?", scaleMin:"Low", scaleMax:"High"},
+  Physical:{title:"Physical Demand", content:"How much physical activity was required? Was the task easy or demanding, slack or strenuous?", scaleMin:"Low", scaleMax:"High"},
+  Temporal:{title:"Temporal Demand", content:"How much time pressure did you feel due to the pace at which the tasks or task elements occurred? Was the pace slow or rapid?", scaleMin:"Low", scaleMax:"High"},
+  Performance:{title:"Performance", content:"How successful were you in performing the task? How satisfied were you with your performance?", scaleMin:"Low", scaleMax:"High"},
+  Effort:{title:"Effort", content:"How hard did you have to work (mentally and physically) to accomplish your level of performance?", scaleMin:"Low", scaleMax:"High"},
+  Frustration:{title:"Frustration", content:"How irritated, stressed, and annoyed versus content, relaxed, and complacent did you feel during the task?", scaleMin:"Low", scaleMax:"High"}
 };
 
-var _ENcontent = {
-  mental:{title:"Mental Demand", content:"How much mental and perceptual activity was required? Was the task easy or demanding, simple or complex?", scaleMin:"Low", scaleMax:"High"},
-  physical:{title:"Physical Demand", content:"How much physical activity was required? Was the task easy or demanding, slack or strenuous?", scaleMin:"Low", scaleMax:"High"},
-  temporal:{title:"Temporal Demand", content:"How much time pressure did you feel due to the pace at which the tasks or task elements occurred? Was the pace slow or rapid?", scaleMin:"Low", scaleMax:"High"},
-  performance:{title:"Performance", content:"How successful were you in performing the task? How satisfied were you with your performance?", scaleMin:"Low", scaleMax:"High"},
-  effort:{title:"Effort", content:"How hard did you have to work (mentally and physically) to accomplish your level of performance?", scaleMin:"Low", scaleMax:"High"},
-  frustration:{title:"Frustration", content:"How irritated, stressed, and annoyed versus content, relaxed, and complacent did you feel during the task?", scaleMin:"Low", scaleMax:"High"}
-};
+var _FRorder = {
+  nextBtn:"Suivant",
+  saveBtn:"Sauvegarder",
+  rulesAdvice:"Cliquez sur chaque échelle pour déterminer le score attribué à chaques critères",
+  weightAdvice:"Cliquez sur le critère qui à contribué le plus à la charge de travail",
+  additionalNote:"* Attention, toute les échelles doivent être complétées"
+}
+var _ENorder = {
+  nextBtn:"Next",
+  saveBtn:"Save",
+  rulesAdvice:"Click on each scale to determine the score assigned to each criteria",
+  weightAdvice:"Click on the criterion which contribute the most of the workload",
+  additionalNote:"* To continue, every scale need to be set !"
+}
 
 
 
@@ -84,6 +98,48 @@ function buildHomepage(){
   btnLong.innerHTML = "LONG";
   document.getElementById("CONTAINER").appendChild(btnLong);
   */
+}
+
+
+
+/******************************************************************************* APP.PAGE */
+
+function buildAdviceElement(parent, advice){
+  addElement("div", parent, "adviceElement_container_", "adviceElement_container_");
+  addElement("div", document.getElementById("adviceElement_container_"), "adviceElement_content_", "adviceElement_content_", advice);
+  addElement("div", document.getElementById("adviceElement_container_"), "adviceElement_line_", "adviceElement_line_");
+  addElement("div", document.getElementById("adviceElement_container_"), "adviceElement_additionalNote_", "adviceElement_additionalNote_");
+}
+function buildNextBtn(parent, content, eventFt, type="rules"){
+  // build BTN
+  addElement("div", parent, "nextBtnElement_container_", "nextBtnElement_container_");
+  addElement("div", document.getElementById("nextBtnElement_container_"), "nextBtnElement_content_", "nextBtnElement_content_", content);
+  // mouse event
+  document.getElementById("nextBtnElement_content_").addEventListener('mouseenter', event => {
+    document.getElementById("nextBtnElement_content_").style.background = 'black';
+    document.getElementById("nextBtnElement_content_").style.color = 'white';
+  });
+  document.getElementById("nextBtnElement_content_").addEventListener('mouseleave', event => {
+    document.getElementById("nextBtnElement_content_").style.background = 'white';
+    document.getElementById("nextBtnElement_content_").style.color = 'black';
+  });
+  // Si le boutont est appelé lors de la rules.page
+  if (type == "rules"){
+    // click event
+    document.getElementById("nextBtnElement_content_").addEventListener("click", function(){
+      asumptionCheck = onClickValidRulesPage();
+      if (asumptionCheck){
+        eventFt();
+      }
+    });
+  }
+  // Si le boutont est appelé lors de la weight.page
+  else{
+    // click event
+    document.getElementById("nextBtnElement_content_").addEventListener("click", function(){
+      eventFt();
+    });
+  }
 }
 
 
@@ -175,9 +231,9 @@ class tlxRules{
 
 }
 
-function buildRuleElement(criteria, content, rules){
+function buildRuleElement(parent, criteria, content, rules){
   // Build container
-  addElement("div", document.getElementById("CONTAINER"), "rulesElement_container_"+criteria, "rulesElement_container_");
+  addElement("div", parent, "rulesElement_container_"+criteria, "rulesElement_container_");
   // Build title
   addElement("div", document.getElementById("rulesElement_container_"+criteria), "rulesElement_title_"+criteria, "rulesElement_title_", content[criteria]["title"]);
   // Build content
@@ -191,64 +247,69 @@ function buildRuleElement(criteria, content, rules){
   // Build max
   addElement("div", document.getElementById("rulesElement_scaleContainer_"+criteria), "rulesElement_max_"+criteria, "rulesElement_max_", content[criteria]["scaleMax"]);
 }
+function onClickValidRulesPage(){
+  // check if all the values is ok
+  valid = checkRulesValidity();
+  // if it's ok
+  if (valid.length == 0){
+    // vide le container principal
+    parent.innerHTML = "";
+    // return result to run next page
+    return true;
+  }
+  // if all is not ok
+  else{
+    // pour chaque critère non renseigné
+    for (criteria in valid){
+      document.getElementById("rulesElement_title_"+valid[criteria]).style.color = "red";
+      document.getElementById("rulesElement_content_"+valid[criteria]).style.color = "red";
+    }
+    // ajout d'une note explicative
+    document.getElementById("adviceElement_additionalNote_").innerHTML = _selectedOrdersContent["additionalNote"];
+    // remonte l'overflow en haut de page
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    // return result
+    return false;
+  }
+}
 
 
 
 /******************************************************************************* APP.PAGE.WEIGHT */
 
-
 // Fill the two criterias' container and allow to fill the selectedCriteria with a click on the element
-function buildWeightModule(parent, pairs){
+function buildWeightModule(parent, pairs, content){
   // Create UI element
-  addElement("div", parent, "weightChoice_element1_"+pairs[0], "weightChoice_element1_ weightChoice_element", pairs[0]);
+  addElement("div", parent, "weightChoice_element1_"+pairs[0], "weightChoice_element1_ weightChoice_element", content[0]);
   addElement("div", parent, "weightChoice_sepaline");
-  addElement("div", parent, "weightChoice_element2_"+pairs[1], "weightChoice_element2_ weightChoice_element", pairs[1]);
+  addElement("div", parent, "weightChoice_element2_"+pairs[1], "weightChoice_element2_ weightChoice_element", content[1]);
   // select element on click
-  document.getElementById("weightChoice_element1_"+pairs[0]).addEventListener("click", function(){selectedCriteria = pairs[0]});
-  document.getElementById("weightChoice_element2_"+pairs[1]).addEventListener("click", function(){selectedCriteria = pairs[1]});
-}
-// Creation of the list of all pairs possible
-function findAllPair(mylist){
-  // empty pool of pair
-  pairs = [];
-  // for every criteria in the list of selected criterias
-  for (element in mylist){
-    // counter to evaluate the position of the element in the list
-    var counter = element;
-    // loop to make a pair with every element of the list positionate after the counter
-    while (counter<mylist.length){
-      // only to supress double
-      if (element != counter){
-        // add the pair to the pool
-        pairs.push([mylist[element], mylist[counter]])
-      }
-      // increment counter
-      counter ++;
+  document.getElementById("weightChoice_element1_"+pairs[0]).addEventListener("click", function(){
+    // si l'élément n'était pas sélectioné
+    if (selectedCriteria != pairs[0]){
+      // MAJ du critère sélectionné
+      selectedCriteria = pairs[0];
+      // MAJ UI
+      document.getElementById("weightChoice_element1_"+pairs[0]).style.color = "blue";
+      document.getElementById("weightChoice_element2_"+pairs[1]).style.color = "black";
     }
-  }
-  // return result
-  return pairs;
-}
-// Randomise the list
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
+  });
+  document.getElementById("weightChoice_element2_"+pairs[1]).addEventListener("click", function(){
+    // si l'élément n'était pas sélectioné
+    if (selectedCriteria != pairs[1]){
+      // MAJ du critère sélectionné
+      selectedCriteria = pairs[1];
+      // MAJ UI
+      document.getElementById("weightChoice_element1_"+pairs[0]).style.color = "black";
+      document.getElementById("weightChoice_element2_"+pairs[1]).style.color = "blue";
+    }
+  });  
 }
 
 
 
 /******************************************************************************* TOOLS */
-
 
 function addElement(type, parent, id="None", divClass="None", content="None", additional="None"){
   if (type == "img"){

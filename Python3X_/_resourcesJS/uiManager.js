@@ -1,23 +1,57 @@
 
+/******************************************************************************* VARIABLE */
+
+// variable de stockage des object contenant chaque règles
+var ruleObjects;
+// Selection du langage par defaut
+var _selectedLangageContent;
+var _selectedOrdersContent;
+// selected criterias for the test
+var criterias;
+// choosen criteria = settled to first at the begining
+var selectedCriteria = "None";
+
 
 /******************************************************************************* INIT */
 
+_init();
+
 function _init(){
-  buildHomepage()
-  document.getElementById("shortButton").addEventListener("click", function(){loadNewTest()});
-  document.getElementById("longButton").addEventListener("click", function(){showWeightComparaison()});
+  showHomepage();
+  _selectedLangageContent = _FRcontent;
+  _selectedOrdersContent = _FRorder;
+  criterias = defaultCriterias;
 }
 
-_init();
+
+
+/******************************************************************************* HOME PAGE */
+
+function showHomepage(){
+  // Build structure
+  buildHomepage()
+  // Link to other functions
+  document.getElementById("shortButton").addEventListener("click", function(){
+    document.body.style.background = "white";
+    loadNewTest()
+  });
+  document.getElementById("longButton").addEventListener("click", function(){
+    document.body.style.background = "white";
+    loadNewTest("long")
+  });
+  // additional UI
+  document.getElementById("HEADER").innerHTML = "";
+  document.getElementById("HEADER").style.background = "transparent";
+}
 
 
 
 /******************************************************************************* RULES PAGE */
-var rules = "NotSetYet";
 
 function loadNewTest(version="short"){
   //clear div container
   document.getElementById("CONTAINER").innerHTML = "";
+  document.getElementById("HEADER").style.background = "black";
   /* initiation des objet règle */
   let mental_rule = new tlxRules(criterias[0]);
   let physical_rule = new tlxRules(criterias[1]);
@@ -25,42 +59,31 @@ function loadNewTest(version="short"){
   let performance_rule = new tlxRules(criterias[3]);
   let effort_rule = new tlxRules(criterias[4]);
   let frustration_rule = new tlxRules(criterias[5]);
-
-  rules = {mental:mental_rule, physical:physical_rule, temporal:temporal_rule, performance:performance_rule, effort:effort_rule, frustration:frustration_rule};
-
-  if (version == "long"){
-    /* initiation de la version longue */
-  }
-
-  showRules();
+  // Enregistrement dans une liste
+  ruleObjects = {Mental:mental_rule, Physical:physical_rule, Temporal:temporal_rule, Performance:performance_rule, Effort:effort_rule, Frustration:frustration_rule};
+  // Initiation ui de la page
+  showRules(version);
 }
 
-function showRules(){
+function showRules(version){
+  // affichage ui de la consigne
+  buildAdviceElement(document.getElementById("CONTAINER"), _selectedOrdersContent["rulesAdvice"])
+  // création de toutes les règles curseurs
   for (var i =0; i<criterias.length; i++){
-    buildRuleElement(criterias[i], _FRcontent, rules)
+    buildRuleElement(document.getElementById("CONTAINER"), criterias[i], _selectedLangageContent, ruleObjects)
   }
-  btnChannelToPython = document.createElement("BUTTON");
-  btnChannelToPython.innerHTML = "SEND";
-  document.getElementById("CONTAINER").appendChild(btnChannelToPython);
-  btnChannelToPython.addEventListener("click", function(){sendDatasToPython()});
-  /*
-  for (let i = 0; i < 6; i++) {
-    rules[i].buildRules(document.getElementById("CONTAINER"));
+  // Si c'est une version longue
+  if (version == "long"){
+    // création btn next
+    buildNextBtn(document.getElementById("CONTAINER"), _selectedOrdersContent["nextBtn"], showWeightComparaison)
   }
-  */
-}
-
-var feedback_scores = null;
-
-// Fonction d'envoie des donnée à python
-function sendDatasToPython(){
-  // Création du channel
-  new QWebChannel(qt.webChannelTransport, function(channel) {
-    // Construction de l'object "channel"
-    feedback_scores = channel.objects.feedback_scores;
-    // Fonction d'envoi des données
-    feedback_scores.getRef(JSON.stringify(scores));
-  });
+  // Si c'est une version courte
+  else{
+    buildNextBtn(document.getElementById("CONTAINER"), _selectedOrdersContent["nextBtn"], finished)
+    //btnNext.addEventListener("click", function(){sendDatasToPython()});
+  }
+  // ! a remplacer
+  function finished(){console.log("finish")}
 }
 
 
@@ -68,62 +91,62 @@ function sendDatasToPython(){
 /******************************************************************************* WEIGHT PAGE */
 
 function showWeightComparaison(){
-
   //clear div container
   document.getElementById("CONTAINER").innerHTML = "";
-
-  // Initialization of associated scores to criterias
-  var weightScore = {mental:0, physical:0, temporal:0, performance:0, effort:0, frustration:0};
   // Creation of the list of pairs and shuffle
   var allPairs = findAllPair(criterias);
   allPairs = shuffle(allPairs);
-
   // counter made to show all pair from allPairs list
   var pairCounter = 0;
-  // choosen criteria = None by default
-  var selectedCriteria = "First";
-
+  // Build UI advice
+  buildAdviceElement(document.getElementById("CONTAINER"), _selectedOrdersContent["weightAdvice"])
   // Creation of container for criterias and submit button
   addElement("div", document.getElementById("CONTAINER"), "weightChoice_container");
-  addElement("div", document.getElementById("CONTAINER"), "weightChoice_submit", "None", "Confirmer");
-  document.getElementById("weightChoice_submit").addEventListener("click", function(){clickOnNextPair()});
-
+  // Build btn
+  buildNextBtn(document.getElementById("CONTAINER"), _selectedOrdersContent["nextBtn"], clickOnNextPair, "weight")
+  // show the first comparaison
+  showPairs(allPairs, pairCounter);
   // click function to increment the counter and show the next pair
   function clickOnNextPair(){
+    console.log(selectedCriteria)
     if(selectedCriteria != "None"){
       // icrement counter
       pairCounter++;
-      // re-initialize value of selected criteria
-      selectedCriteria = "None"
       // show next pair
       showPairs(allPairs, pairCounter);
-      console.log(weightScore);
+      console.log(weightScores);
     }
     else{
+      console.log(selectedCriteria)
       alert("Veuillez sélectionner un choix...");
     }
+    // re-initialize value of selected criteria
+    selectedCriteria = "None"
   }
   // Show a pair from 'mylist' at 'myIndex'
   function showPairs(myList, myIndex){
     // If it's not the first item
-    if (selectedCriteria != "First"){
-      weightScore[selectedCriteria]+=1;
+    if (selectedCriteria != "None"){
+      weightScores[selectedCriteria]+=1;
     }
     // delete content of the module container
     document.getElementById("weightChoice_container").innerHTML = "";
     // if all the pairs isn't showed
     if(pairCounter<allPairs.length){
       // build a new pairs comparaison
-      buildWeightModule(document.getElementById("weightChoice_container"), myList[myIndex]);
+      buildWeightModule(document.getElementById("weightChoice_container"), myList[myIndex], [_selectedLangageContent[myList[myIndex][0]]["title"], _selectedLangageContent[myList[myIndex][1]]["title"]]);
     }
     else{
-      console.log(weightScore);
+      console.log(weightScores);
       alert("test terminé");
     }
   }
+}
 
 
-  // show the first comparaison
-  showPairs(allPairs, pairCounter);
 
+/******************************************************************************* POST TEST VALDATION */
+
+function saveResult(){
+  
 }

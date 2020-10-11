@@ -142,3 +142,11 @@ function showWeightComparaison(){
     }
   }
 }
+
+
+
+/******************************************************************************* POST TEST VALDATION */
+
+function saveResult(){
+  
+}

@@ -1,6 +1,6 @@
 <!DOCTYPE RCC><RCC version="1.0">
  <qresource>
-     <file>tlx.js</file>
+     <file>ict.js</file>
      <file>uiBuilder.js</file>
      <file>uiManager.js</file>
  </qresource>
