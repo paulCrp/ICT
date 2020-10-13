@@ -83,7 +83,10 @@ function showRules(version){
     //btnNext.addEventListener("click", function(){sendDatasToPython()});
   }
   // ! a remplacer
-  function finished(){console.log("finish")}
+  function finished(){
+    console.log("finish");
+    alexft()
+  }
 }
 
 
@@ -138,6 +141,7 @@ function showWeightComparaison(){
     }
     else{
       console.log(weightScores);
+      alexft()
       alert("test terminé");
     }
   }
@@ -148,5 +152,5 @@ function showWeightComparaison(){
 /******************************************************************************* POST TEST VALDATION */
 
 function saveResult(){
-  
+
 }

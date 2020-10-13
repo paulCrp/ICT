@@ -6,6 +6,7 @@
 
 var defaultCriterias = ["Mental", "Physical", "Temporal", "Performance", "Effort", "Frustration"];
 var scores = {Mental:"None", Physical:"None", Temporal:"None", Performance:"None", Effort:"None", Frustration:"None"};
+var roudedScores = {};
 var weightScores = {Mental:0, Physical:0, Temporal:0, Performance:0, Effort:0, Frustration:0};
 
 
@@ -77,51 +78,50 @@ function shuffle(array) {
 
 // ! need to set it
 function alexft(){
-  // Create score button
-  addElement("div", document.getElementById("CONTAINER"), "weightChoice_score", "None", "Score");
-  buttonScore = document.getElementById("weightChoice_score");
-  buttonScore.addEventListener("click", function(){
-  // Assign score brut and weight to variables
-      var scoreBrut = [45, 80, 25, 70, 100, 15];
-      var scoreWeight = [0, 3, 4, 3, 3, 2];
-  // Merge score brut and weight in one array
-      var totalScore = mergeScore(scoreBrut, scoreWeight);
-      console.log(totalScore);
-  // NASA TLX score calculation
-      var result = scoreCalculation(totalScore);
-      console.log(result);
-    }
-  );
+  createRoundedArray();
+  scoreG = scoreCalculation();
 }
 
 
 
 /******************************************************************************* Score Calcultation */
 // Round number to 5
-function round(score){
-  return Math.round(score/5)*5;
-}
-// Merge two list in one array
-function mergeScore(scoreBrut, weightScore){
-  var mergedScore = [];
-  for (element in criterias){
-    // Push in array brut score, weight score and brut score rounded
-    mergedScore.push([scoreBrut[element], weightScore[element], round(scoreBrut[element])]);
+function createRoundedArray(){
+  mykeys = Object.keys(scores);
+  for (key in mykeys){
+    roudedScores[mykeys[key]] = Math.round(scores[mykeys[key]]/5)*5;
   }
-  return mergedScore;
 }
 // Calculation of the weighted average of score with the weight and the rounded score
-function scoreCalculation(scoreList){
-  var scoreTotal = 0;
-  var coef = 0;
-  for(element in scoreList){
-    scoreTotal = scoreTotal + scoreList[element][1] * scoreList[element][2];
-    coef = coef + scoreList[element][1];
+function scoreCalculation(){
+  // empty result need to return
+  var scoreGlobal = 0;
+  // calcul sum of all coef
+  totalcoef = calculateSumCoef();
+  // if is a short version
+  if (totalcoef == 0){
+    totalcoef = defaultCriterias.length;
+    weightScores = {Mental:1, Physical:1, Temporal:1, Performance:1, Effort:1, Frustration:1};
   }
-  scoreTotal = scoreTotal / coef;
-  return scoreTotal;
+  console.log(totalcoef)
+  // calcul Score global
+  for(element in roudedScores){
+    scoreGlobal = scoreGlobal + roudedScores[element] * weightScores[element];
+  }
+  scoreGlobal = scoreGlobal / totalcoef;
+  console.log(scoreGlobal)
+  // return score global
+  return scoreGlobal;
 }
-
+// Verify the value of cummulate coef
+function calculateSumCoef(){
+  totalcoef = 0;
+  // verif weightScore
+  for (i in weightScores){
+    totalcoef += weightScores[i];
+  }
+  return totalcoef
+}
 
 
 /******************************************************************************* link to python */
