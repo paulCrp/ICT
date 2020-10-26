@@ -19,6 +19,223 @@ body {
   height: 20px;
 }
 
+/******************************************************************************* HOMEPAGE */
+#homepage_container{
+  margin-top: 15%;
+  height: 800px;
+  width: 600px;
+  border: dashed 2px;
+  background-color: black;
+  position: relative;
+}
+
+#title_container{
+  height: 25%;
+  width: 100%;
+}
+
+#title{
+  color: white;
+  font-size: 10em;
+  position: relative;
+  text-align: center;
+  margin-top: 5%;
+}
+
+#subtitle{
+  color: white;
+  font-size: 1em;
+  position: relative;
+  text-align: center;
+}
+
+#mainContainer{
+  margin-top: 10%;
+  margin-left: 15%;
+  height: 40%;
+  width: 70%;
+  position: relative;
+}
+
+#profile_container{
+  height: 14%;
+  width: 100%;
+}
+
+.iconContainer{
+    border: dashed 2px blue;
+    float : left;
+    width: 35px;
+    height: 35px;
+    margin-right: 3%;
+}
+
+#addContainer{
+    float: right;
+}
+
+#informationContainer, #optionContainer, #editProfile{
+  margin-left: 11.5%;
+}
+
+#profileElement{
+  float:left;
+}
+
+#greyLine{
+  background-color: grey;
+  height: 3px;
+  position: relative;
+  top : 100%;
+  margin-bottom: 15%;
+}
+
+.elementContainer{
+  margin-top: 3%;
+  margin-bottom: 3%;
+  height: 10%;
+  width: 100%;
+}
+
+.elementLabel{
+  float: left;
+  width: 30%;
+  color : white;
+  margin-right: 15%;
+}
+
+.titleLabel{
+  float: left;
+  color : white;
+  font-size: 20px;
+}
+
+.elementInput{
+  float: right;
+  width: 50%;
+  background-color: grey;
+}
+
+.selectionBtn {
+    height: 20px;
+    width: 60px;
+    font: 0.8em "sans-serif";
+    color: grey;
+    border: dashed grey 1px;
+    float: left;
+    margin-right: 12%;
+    text-align: center;
+}
+
+#languageEN, #languageFR{
+      width: 30px;
+}
+
+#submitContainer{
+  margin-left: 30%;
+  width: 40%;
+  height: 6%;
+  position: relative;
+}
+
+#startBtn{
+  margin: 0 auto;
+  text-align: center;
+  font-size: 40px;
+  width: 100%;
+  height: auto;
+}
+
+#parametersContainer{
+  margin-left: 30%;
+  margin-top: 5%;
+  width: 40%;
+  height: 6%;
+  position: relative;
+}
+
+.selectionBtn:hover {
+    border: solid white 2px;
+    color: white;
+}
+
+.selectionBtnactive {
+  height: 20px;
+  width: 60px;
+  font: 0.8em "sans-serif";
+  color: white;
+  border: solid white 2px;
+  float: left;
+  margin-right: 12%;
+  text-align: center;
+}
+
+.iconContainer:hover{
+  border: solid white 2px;
+  color: white;
+}
+
+/******************************************************************************* function buildEditProfileWindow */
+#profileWindow_container{
+  margin-top: 15%;
+  height: 800px;
+  width: 600px;
+  border: dashed 2px;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+#closeProfileWindow{
+  float: right;
+}
+
+#titleContainer{
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 10%;
+  width: 100%;
+  font-size: 50px;
+}
+
+#createProfileTitle, #createProfileLabel, #createProfileInput{
+  width: 100%;
+  margin-top: 2%;
+}
+
+#createProfileContainer{
+  margin-left: 15%;
+  margin-top: 40%;
+  margin-right: 15%;
+  height: 35%;
+  clear: left;
+}
+
+#createProfileTitle{
+    font-size: 20px;
+}
+
+#addGroupBtn{
+  margin-top: 3%;
+  height: 20px;
+  width: 80px;
+}
+
+#createProfileBtn{
+  margin-top: 20%;
+  margin-left: 10%;
+  font-size: 25px;
+  height: 25px;
+  width: 80px;
+}
+
+#manageProfileContainer{
+  margin-left: 15%;
+  margin-right: 15%;
+  height: 30%;
+  border : solid 2px red;
+}
 
 /******************************************************************************* Homepage */
 

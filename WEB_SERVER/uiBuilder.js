@@ -81,15 +81,63 @@ var _ENorder = {
 /******************************************************************************* APP.PAGE.HOMEPAGE */
 
 function buildHomepage(){
-  addElement("div", document.getElementById("CONTAINER"), "pathElement_container");
-  addElement("input", document.getElementById("pathElement_container"), "pathInput");
-  addElement("BUTTON", document.getElementById("pathElement_container"), "pathSelectButton", "None", "Choose");
-  addElement("input", document.getElementById("CONTAINER"), "profilNameElement");
-  addElement("input", document.getElementById("CONTAINER"), "groupNameElement");
-  addElement("input", document.getElementById("CONTAINER"), "participantIdElement");
-  addElement("div", document.getElementById("CONTAINER"), "submit_container");
-  addElement("BUTTON", document.getElementById("submit_container"), "shortButton", "None", "Short");
-  addElement("BUTTON", document.getElementById("submit_container"), "longButton", "None", "Long");
+/* HOMEPAGE FRAME */
+  addElement("div", document.getElementById("CONTAINER"), "homepage_container");
+/* TITLE AND SUBTITLE */
+  addElement("div", document.getElementById("homepage_container"), "title_container");
+  addElement("div", document.getElementById("title_container"), "title", "None", "ICT");
+  addElement("div", document.getElementById("title_container"), "subtitle", "None", "From NASA Task Load Index");
+/* MAIN CONTAINER*/
+  addElement("div", document.getElementById("homepage_container"), "mainContainer");
+/* PROFILE CONTAINER*/
+  addElement("div", document.getElementById("mainContainer"), "profile_container");
+  /* add variable of selected profile*/
+  addElement("select", document.getElementById("profile_container"), "profileElement", "elementInput");
+  var profileList = document.getElementById("profileElement");
+  var profileListCounter = 0;
+  profileList[profileListCounter] = new Option("Empty");
+  addElement("div", document.getElementById("profile_container"), "addContainer", "iconContainer");
+  addElement("div", document.getElementById("profile_container"), "greyLine");
+/* EXPERIENCE CONTAINER*/
+  addElement("div", document.getElementById("mainContainer"), "expContainer", "elementContainer");
+  addElement("div", document.getElementById("expContainer"), "expLabel", "elementLabel", "Experimentation");
+  addElement("select", document.getElementById("expContainer"), "expElement", "elementInput");
+  /* add variables linked to EXPERIENCE and the default option*/
+  var experienceList = document.getElementById("expElement");
+  var experienceListCounter = 0;
+  experienceList[experienceListCounter] = new Option("Undefined");
+/* GROUP CONTAINER*/
+  addElement("div", document.getElementById("mainContainer"), "groupContainer", "elementContainer");
+  addElement("div", document.getElementById("groupContainer"), "groupLabel", "elementLabel", "Group");
+  addElement("select", document.getElementById("groupContainer"), "groupElement", "elementInput");
+  /* add variables linked to GROUP and the default option*/
+  var groupList = document.getElementById("groupElement");
+  var groupListCounter = 0;
+  groupList[groupListCounter] = new Option("Undefined");
+/* ID CONTAINER*/
+  addElement("div", document.getElementById("mainContainer"), "idContainer", "elementContainer");
+  addElement("div", document.getElementById("idContainer"), "idLabel", "elementLabel", "Participant ID");
+  addElement("input", document.getElementById("idContainer"), "IdElement", "elementInput");
+  var participantID = "None";
+/* LANGUAGE CONTAINER*/
+  addElement("div", document.getElementById("mainContainer"), "languageContainer", "elementContainer");
+  addElement("div", document.getElementById("languageContainer"), "languageLabel", "elementLabel", "Language");
+  addElement("div", document.getElementById("languageContainer"), "languageEN", "selectionBtnactive", "EN");
+  addElement("div", document.getElementById("languageContainer"), "languageFR", "selectionBtn", "FR");
+/* VERSION CONTAINER*/
+  addElement("div", document.getElementById("mainContainer"), "versionContainer", "elementContainer");
+  addElement("div", document.getElementById("versionContainer"), "languageLabel", "elementLabel", "Version");
+  addElement("div", document.getElementById("versionContainer"), "versionShort", "selectionBtnactive", "Short");
+  addElement("div", document.getElementById("versionContainer"), "versionLong", "selectionBtn", "Long");
+/* SUBMIT CONTAINER*/
+  addElement("div", document.getElementById("homepage_container"), "submitContainer");
+  addElement("div", document.getElementById("submitContainer"), "startBtn", "selectionBtn", "START");
+/* PARAMETERS CONTAINER*/
+  addElement("div", document.getElementById("homepage_container"), "parametersContainer");
+  addElement("div", document.getElementById("parametersContainer"), "informationContainer", "iconContainer");
+  addElement("div", document.getElementById("parametersContainer"), "optionContainer", "iconContainer");
+  addElement("div", document.getElementById("parametersContainer"), "editProfile", "iconContainer");
+
   /*
   btnShort = document.createElement("BUTTON");
   btnShort.innerHTML = "SHORT";
@@ -98,6 +146,36 @@ function buildHomepage(){
   btnLong.innerHTML = "LONG";
   document.getElementById("CONTAINER").appendChild(btnLong);
   */
+  /* addElement("input", document.getElementById("pathElement_container"), "pathInput");
+  addElement("BUTTON", document.getElementById("pathElement_container"), "pathSelectButton", "None", "Choose");
+  addElement("input", document.getElementById("pathElement_container"), "profilNameElement");*/
+}
+
+function buildEditProfileWindow(){
+  addElement("div", document.getElementById("homepage_container"), "profileWindow_container");
+
+  addElement("div", document.getElementById("profileWindow_container"), "closeProfileWindow", "iconContainer");
+  addElement("div", document.getElementById("profileWindow_container"), "titleContainer", "elementLabel", "Profiles");
+  addElement("div", document.getElementById("profileWindow_container"), "createProfileContainer");
+  addElement("div", document.getElementById("createProfileContainer"), "createProfileTitle", "titleLabel", "Add new profile");
+  addElement("div", document.getElementById("createProfileContainer"), "createProfileLabel", "elementLabel", "Experiment name :");
+  addElement("input", document.getElementById("createProfileContainer"), "createProfileInput", "elementInput");
+  addElement("div", document.getElementById("createProfileContainer"), "addGroupBtn", "selectionBtn", "Add Group");
+  addElement("div", document.getElementById("createProfileContainer"), "createProfileBtn", "selectionBtn", "Save");
+  addElement("div", document.getElementById("profileWindow_container"), "manageProfileContainer");
+  addElement("div", document.getElementById("manageProfileContainer"), "manageProfileTitle", "titleLabel", "Manage profiles");
+
+/* div creation for each existing profile
+  for (element in profileList){
+    addElement("div", document.getElementById("manageProfileContainer"), "profileContainer"+profileList[element]);
+  }
+*/
+  document.getElementById("closeProfileWindow").addEventListener("click", function(){destroyWindow(document.getElementById("profileWindow_container"))})
+}
+
+function destroyWindow(windowToRemove){
+  var referent = document.getElementById("homepage_container");
+  referent.removeChild(windowToRemove);
 }
 
 
@@ -304,7 +382,7 @@ function buildWeightModule(parent, pairs, content){
       document.getElementById("weightChoice_element1_"+pairs[0]).style.color = "black";
       document.getElementById("weightChoice_element2_"+pairs[1]).style.color = "blue";
     }
-  });  
+  });
 }
 
 

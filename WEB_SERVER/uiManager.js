@@ -17,7 +17,20 @@ var selectedCriteria = "None";
 _init();
 
 function _init(){
-  showHomepage();
+  //showHomepage();
+  buildHomepage()
+
+  // profile creation button
+  document.getElementById("addContainer").addEventListener("click", function(){buildAddProfileWindow()})
+  // language selector
+  document.getElementById("languageEN").addEventListener("click", function(){activeBtn("languageEN")})
+  document.getElementById("languageFR").addEventListener("click", function(){activeBtn("languageFR")})
+  // version selector
+  document.getElementById("versionShort").addEventListener("click", function(){activeBtn("versionShort")})
+  document.getElementById("versionLong").addEventListener("click", function(){activeBtn("versionLong")})
+  // Open management profile window
+  document.getElementById("editProfile").addEventListener("click", function(){buildEditProfileWindow()})
+  document.getElementById("addContainer").addEventListener("click", function(){buildEditProfileWindow()})
   _selectedLangageContent = _FRcontent;
   _selectedOrdersContent = _FRorder;
   criterias = defaultCriterias;
