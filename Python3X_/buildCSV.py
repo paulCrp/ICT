@@ -94,6 +94,9 @@ class CSVManager:
     def createParticipantResultFile(self, nameProfil, nameGroup, participantID, values):
         ''
 
+    def addValues(self, nameProfil, participantId, values):
+        self.__addProfilFileValues(nameProfil, participantId, values)
+
 
 
 
@@ -182,15 +185,29 @@ class CSVManager:
 
 if __name__ == '__main__':
 
-    path = "U:/Documents/NASATLX_result"
+    path = "U:/Desktop/newICT"
     myManager = CSVManager(path)
-    exemplevalues = ["WeightMental", "WeightPhysical", "WeightTemporal", "WeightPerformance", "WeightEffort", "WeightFrustration",
+
+    #print(myManager.getArchOfParentPath())
+    #myManager.createNewProfil("alexExpe", ["Gp1", "Gp2"])
+
+    [
+    ['Participants', 'WeightMental', 'WeightPhysical', 'WeightTemporal', 'WeightPerformance', 'WeightEffort', 'WeightFrustration', 'TlxGlobal_trial1', 'TlxMental_trial1', 'TlxPhysical_trial1', 'TlxTemporal_trial1', 'TlxPerformance_trial1', 'TlxEffort_trial1', 'TlxFrustration_trial1', 'ExactGlobal_trial1', 'ExactMental_trial1', 'ExactPhysical_trial1', 'ExactTemporal_trial1', 'ExactPerformance_trial1', 'ExactEffort_trial1', 'ExactFrustration_trial1', 'TlxGlobal_trial2', 'TlxMental_trial2', 'TlxPhysical_trial2', 'TlxTemporal_trial2', 'TlxPerformance_trial2', 'TlxEffort_trial2', 'TlxFrustration_trial2', 'ExactGlobal_trial2', 'ExactMental_trial2', 'ExactPhysical_trial2', 'ExactTemporal_trial2', 'ExactPerformance_trial2', 'ExactEffort_trial2', 'ExactFrustration_trial2', 'TlxGlobal_trial3', 'TlxMental_trial3', 'TlxPhysical_trial3', 'TlxTemporal_trial3', 'TlxPerformance_trial3', 'TlxEffort_trial3', 'TlxFrustration_trial3', 'ExactGlobal_trial3', 'ExactMental_trial3', 'ExactPhysical_trial3', 'ExactTemporal_trial3', 'ExactPerformance_trial3', 'ExactEffort_trial3', 'ExactFrustration_trial3'],
+
+    ['Id1', 'TlxGlobal', 'TlxMental', 'TlxPhysical', 'TlxTemporal', 'TlxPerformance', 'TlxEffort', 'TlxFrustration', 'ExactGlobal', 'ExactMental', 'ExactPhysical', 'ExactTemporal', 'ExactPerformance', 'ExactEffort', 'ExactFrustration'],
+
+    ['Id2', 'WeightMental', 'WeightPhysical', 'WeightTemporal', 'WeightPerformance', 'WeightEffort', 'WeightFrustration', 'TlxGlobal', 'TlxMental', 'TlxPhysical', 'TlxTemporal', 'TlxPerformance', 'TlxEffort', 'TlxFrustration', 'ExactGlobal', 'ExactMental', 'ExactPhysical', 'ExactTemporal', 'ExactPerformance', 'ExactEffort', 'ExactFrustration', 'TlxGlobal', 'TlxMental', 'TlxPhysical', 'TlxTemporal', 'TlxPerformance', 'TlxEffort', 'TlxFrustration', 'ExactGlobal', 'ExactMental', 'ExactPhysical', 'ExactTemporal', 'ExactPerformance', 'ExactEffort', 'ExactFrustration', 'TlxGlobal', 'TlxMental', 'TlxPhysical', 'TlxTemporal', 'TlxPerformance', 'TlxEffort', 'TlxFrustration', 'ExactGlobal', 'ExactMental', 'ExactPhysical', 'ExactTemporal', 'ExactPerformance', 'ExactEffort', 'ExactFrustration']
+    ]
+
+
+
+    trial1 = ["WeightMental", "WeightPhysical", "WeightTemporal", "WeightPerformance", "WeightEffort", "WeightFrustration",
     "TlxGlobal", "TlxMental", "TlxPhysical", "TlxTemporal", "TlxPerformance", "TlxEffort", "TlxFrustration",
     "ExactGlobal", "ExactMental", "ExactPhysical", "ExactTemporal", "ExactPerformance", "ExactEffort", "ExactFrustration"]
-    dotValues = ["TlxGlobal", "TlxMental", "TlxPhysical", "TlxTemporal", "TlxPerformance", "TlxEffort", "TlxFrustration",
+    trial2 = ["TlxGlobal", "TlxMental", "TlxPhysical", "TlxTemporal", "TlxPerformance", "TlxEffort", "TlxFrustration",
     "ExactGlobal", "ExactMental", "ExactPhysical", "ExactTemporal", "ExactPerformance", "ExactEffort", "ExactFrustration"]
     #i = myManager.createNewProfil("test")
-    myManager.addValues("test", "Id1", dotValues)
+    myManager.addValues("alexExpe", "Id3", trial1)
     #t = csv.writer(open ("U:/Documents/NASATLX_result/test3/Scores.csv", 'w'), dialect='unix',delimiter = ';')
     #t.writerow(["additional rows1", "additional rows 2"])
     #print(i)
