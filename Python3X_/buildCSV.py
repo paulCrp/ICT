@@ -91,8 +91,15 @@ class CSVManager:
             # return all good
             return [0, "Profil created"]
 
-    def createParticipantResultFile(self, nameProfil, nameGroup, participantID, values):
-        ''
+    def createParticipantResultFile(self, nameProfil, nameGroup, participantID, criterias, scores):
+        columns = []
+        path = self.parentFolder+"/"+nameProfil+"/"+nameGroup+"/id"+participantID+".csv"
+        #participant's csv creation
+        self.__createTable(path, columns)
+        #retrieve total score and criterias for the participant
+        tableScore = self.__buildIndividualScore(criterias, scores)
+        #write tableScore in the file
+        self.__writeTable(path, tableScore)
 
     def addValues(self, nameProfil, participantId, values):
         self.__addProfilFileValues(nameProfil, participantId, values)
@@ -133,6 +140,21 @@ class CSVManager:
             x+=1;
         # return result
         return columns
+
+    def __buildIndividualScore(self, criterias, scores):
+        #base of the column
+        individualTable = []
+        individualTable.append(["Criterias", "Scores"])
+
+        #merge criterias and score list in one array
+        for i in range(len(criterias)):
+            temp = []
+            temp.append(criterias[i])
+            temp.append(scores[i])
+            individualTable.append(temp)
+
+        return individualTable
+
 
     def __getAll(self, tablePath):
         #read table from path
@@ -185,8 +207,18 @@ class CSVManager:
 
 if __name__ == '__main__':
 
-    path = "U:/Desktop/newICT"
+    path = "C:/Users/AlexEsther/Desktop/newICT"
     myManager = CSVManager(path)
+    nameProfil = "Alex"
+    nameGroup = "A"
+    participantID = "10"
+    criterias = [
+            "WeightMental", "WeightPhysical", "WeightTemporal", "WeightPerformance", "WeightEffort", "WeightFrustration"
+            "TlxGlobal", "TlxMental", "TlxPhysical", "TlxTemporal", "TlxPerformance", "TlxEffort", "TlxFrustration",
+                ]
+    scores = ["4", "1", "3", "1", "4", "2", "92", "45", "23", "56", "78", "4", "12"]
+
+    myManager.createParticipantResultFile(nameProfil, nameGroup, participantID, criterias, scores)
 
     #print(myManager.getArchOfParentPath())
     #myManager.createNewProfil("alexExpe", ["Gp1", "Gp2"])
@@ -201,13 +233,10 @@ if __name__ == '__main__':
 
 
 
-    trial1 = ["WeightMental", "WeightPhysical", "WeightTemporal", "WeightPerformance", "WeightEffort", "WeightFrustration",
-    "TlxGlobal", "TlxMental", "TlxPhysical", "TlxTemporal", "TlxPerformance", "TlxEffort", "TlxFrustration",
-    "ExactGlobal", "ExactMental", "ExactPhysical", "ExactTemporal", "ExactPerformance", "ExactEffort", "ExactFrustration"]
+
     trial2 = ["TlxGlobal", "TlxMental", "TlxPhysical", "TlxTemporal", "TlxPerformance", "TlxEffort", "TlxFrustration",
     "ExactGlobal", "ExactMental", "ExactPhysical", "ExactTemporal", "ExactPerformance", "ExactEffort", "ExactFrustration"]
     #i = myManager.createNewProfil("test")
-    myManager.addValues("alexExpe", "Id3", trial1)
     #t = csv.writer(open ("U:/Documents/NASATLX_result/test3/Scores.csv", 'w'), dialect='unix',delimiter = ';')
     #t.writerow(["additional rows1", "additional rows 2"])
     #print(i)
