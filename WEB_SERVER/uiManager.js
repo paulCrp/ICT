@@ -18,10 +18,10 @@ _init();
 
 function _init(){
   //showHomepage();
-  buildHomepage()
+  showHomepage()
 
   // profile creation button
-  document.getElementById("addContainer").addEventListener("click", function(){buildAddProfileWindow()})
+  /*document.getElementById("addContainer").addEventListener("click", function(){buildAddProfileWindow()})
   // language selector
   document.getElementById("languageEN").addEventListener("click", function(){activeBtn("languageEN")})
   document.getElementById("languageFR").addEventListener("click", function(){activeBtn("languageFR")})
@@ -30,7 +30,8 @@ function _init(){
   document.getElementById("versionLong").addEventListener("click", function(){activeBtn("versionLong")})
   // Open management profile window
   document.getElementById("editProfile").addEventListener("click", function(){buildEditProfileWindow()})
-  document.getElementById("addContainer").addEventListener("click", function(){buildEditProfileWindow()})
+  document.getElementById("addContainer").addEventListener("click", function(){buildEditProfileWindow()})*/
+  
   _selectedLangageContent = _FRcontent;
   _selectedOrdersContent = _FRorder;
   criterias = defaultCriterias;
@@ -38,24 +39,10 @@ function _init(){
 
 
 
+
 /******************************************************************************* HOME PAGE */
 
-function showHomepage(){
-  // Build structure
-  buildHomepage()
-  // Link to other functions
-  document.getElementById("shortButton").addEventListener("click", function(){
-    document.body.style.background = "white";
-    loadNewTest()
-  });
-  document.getElementById("longButton").addEventListener("click", function(){
-    document.body.style.background = "white";
-    loadNewTest("long")
-  });
-  // additional UI
-  document.getElementById("HEADER").innerHTML = "";
-  document.getElementById("HEADER").style.background = "transparent";
-}
+
 
 
 
