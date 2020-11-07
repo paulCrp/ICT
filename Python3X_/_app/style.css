@@ -1,6 +1,8 @@
 /******************************************************************************* HTML */
+
 body {
   /*background-color: #0E0E0E;*/
+  position: absolute;
   background-color: #346a99;
   color: black;
   margin: 0;
@@ -10,15 +12,622 @@ body {
   font-family: sans-serif;
 }
 #CONTAINER{
+  position: relative;
+  display:inline-block;
   margin-left: 20%;
   margin-right: 20%;
+  height: calc(100% - 70px);
+  width: 60%;
 }
 #HEADER{
+  position: relative;
+  display:inline-block;
   background-color: black;
   width: 100%;
   height: 20px;
 }
 
+
+/******************************************************************************* HOMEPAGE */
+
+.W_unselectBtn{
+  position: relative;
+  display: inline-block;
+  line-height: 130%;
+  height: 3vh;
+  width: 7vh;
+  font-size: 2vh;
+  margin-left: 2vh;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 4px;
+  color: grey;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+.W_unselectBtn:hover{
+  color:white;
+  border: 2px solid white;
+}
+.W_selectBtn{
+  position: relative;
+  display: inline-block;
+  line-height: 130%;
+  height: 3vh;
+  width: 7vh;
+  font-size: 2vh;
+  margin-left: 2vh;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 4px;
+  color: black;
+  background-color: white;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.W_titleLabel{
+  position: relative;
+  color: #B5B5B5;
+  font-size: 3.5vh;
+  width: 100%;
+  margin-bottom: 1vh;
+}
+.W_sepaline{
+  position: relative;
+  height: 0.2vh;
+  width: 100%;
+  background-color: #B5B5B5;
+}
+.W_elementContainer{
+  position: relative;
+  height: 3vh;
+  margin-bottom: 2vh;
+  /*height: auto;*/
+}
+.W_elementLabel{
+  position: absolute;
+  font-size: 2vh;
+  color: #B5B5B5;
+}
+.W_submodule{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+.W_createProfilBtn{
+  position: relative;
+  display: inline-block;
+  line-height: 140%;
+  height: 3vh;
+  width: 11vh;
+  margin-top: 3vh;
+  font-size: 2vh;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 4px;
+  color: grey;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+.W_createProfilBtn:hover{
+  color:white;
+  border: 2px solid white;
+}
+
+.W_criteriaContainer{
+  position: relative;
+  display: inline-block;
+  width: 80%;
+  margin-top: 3vh;
+}
+.W_criteriaCheckbox{
+  position: absolute;
+  left:0;
+}
+.W_criteriaChoice{
+  position: absolute;
+  left: 4vh;
+  color: #B5B5B5;
+  font-size: 1.7vh;
+}
+
+
+/******************************************************************** HOME UI */
+
+#HPAGE_homepage_container{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  max-height: 800px;
+  max-width: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  background-color: #202020;
+}
+
+/* TITLE */
+#HPAGE_title_container{
+  position: relative;
+  display: inline-block;
+  height: 25%;
+  width: 100%;
+  margin-top: 2vh;
+  margin-bottom: 6vh;
+}
+#HPAGE_title{
+  position: relative;
+  color: #B5B5B5;
+  font-size: 15vh;
+  text-align: center;
+  /*margin-top: 5%;*/
+}
+#HPAGE_subtitle{
+  position: relative;
+  color: #B5B5B5;
+  font-size: 2vh;
+  text-align: center;
+}
+
+/* MAIN */
+#HPAGE_mainContainer{
+  position: relative;
+  display: inline-block;
+  left: 15%;
+  height: 40%;
+  width: 70%;
+  margin-bottom: 1vh;
+}
+
+#HPAGE_profile_container{
+  position: relative;
+  display: inline-block;
+  height: 13%;
+  width: 100%;
+  margin-bottom: 3%;
+}
+#HPAGE_chooseProfil{
+  position: absolute;
+  left: 0;
+  color: #B5B5B5;
+  width: 85%;
+  font-size: 3vh;
+}
+#HPAGE_sepaLine{
+  background-color: #B5B5B5;
+  height: 0.1vh;
+  position: relative;
+  top : 100%;
+  margin-bottom: 15%;
+}
+
+.HPAGE_elementContainer{
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.5%;
+  height: 10%;
+  width: 100%;
+}
+.HPAGE_elementLabel{
+  position: absolute;
+  left: 0;
+  /*width: 30%;*/
+  color : #B5B5B5;
+  font-size: 2vh;
+  /*margin-right: 15%;*/
+}
+.HPAGE_elementChoice{
+  position: absolute;
+  right: 4.5vh;
+  max-width: 50%;
+  /*background-color: #151515;*/
+  color: grey;
+  font-size: 2vh;
+  cursor: pointer;
+}
+.HPAGE_elementChooseBtn{
+  position: absolute;
+  right: 0;
+  width: 2vh;
+  height: 2vh;
+  cursor: pointer;
+}
+
+#HPAGE_IdElement{
+  position: absolute;
+  top: -0.5vh;
+  right: 4vh;
+  width: 48%;
+  color: grey;
+  cursor: pointer;
+  border: none;
+  height: 3vh;
+  font-size: 2vh;
+  background-color: #151515;
+  border-radius: 5px;
+  padding-left: 1vh;
+}
+#HPAGE_nbTrialElement{
+  position: absolute;
+  right: 0.5vh;
+  color : #B5B5B5;
+  font-size: 2vh;
+}
+
+.HPAGE_elementBtnContainer{
+  position: absolute;
+  right: 0;
+  /*max-width: 50%;*/
+}
+
+/* SUBMIT */
+#HPAGE_submitContainer{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  /*margin-left: 30%;*/
+  height: 10%;
+}
+#HPAGE_startBtn{
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  width: auto;
+  height: 50%;
+  font-size: 3vh;
+  border: 2px solid white;
+  font-weight: 600;
+  color: white;
+  left: 3%;
+  line-height: 130%;
+  background-color: transparent;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin: 5px;
+  overflow: hidden;
+  padding: 0 22px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all .2s ease-in-out;
+}
+#HPAGE_startBtn:hover{
+  background-color: white;
+  color: #252525;
+}
+
+/* PARAMETERS */
+#HPAGE_parametersContainer{
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  height: 8%;
+  width: 70%;
+}
+.HPAGE_iconMain{
+  position: absolute;
+  width: 4vh;
+  height: 4vh;
+  cursor: pointer;
+}
+#HPAGE_informationBtn{
+  left: 20%;
+}
+#HPAGE_optionBtn{
+  left: 40%;
+}
+#HPAGE_profileManagerBtn{
+  left: 60%;
+}
+#HPAGE_profileBtn{
+  left: 80%;
+}
+
+
+/**************************************************************** AboveWindow */
+
+#aboveWindow{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  max-height: 800px;
+  max-width: 0px;
+  /*top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);*/
+  border-radius: 20px;
+  background-color: #101010;
+  transition-property: all;
+	transition-duration: .3s;
+	transition-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+}
+#AW_header{
+  position: relative;
+  display: inline-block;
+  height: 10%;
+  width: 100%;
+  margin-bottom: 3%;
+}
+#AW_closeBtn{
+  position: absolute;
+  height: 3vh;
+  width: 3vh;
+  left: 1vh;
+  top: 1vh;
+  cursor: pointer;
+}
+#AW_content{
+  position: relative;
+  display: inline-block;
+  height: 80%;
+  width: 80%;
+  left: 10%;
+  opacity: 0;
+  transition-duration: .3s;
+	transition-timing-function: cubic-bezier(0, 0, 0.5, 1);
+}
+
+
+/*********************************************************** Add Profile Page */
+
+#EP_createProfileContainer{
+  position: relative;
+  width: 100%;
+}
+
+#EP_createProfile_titleContainer{
+  position: relative;
+  margin-bottom: 3vh;
+}
+
+#EP_ContentContainer{
+  position: relative;
+  margin-bottom: 3vh;
+  width: 100%;
+  height: 45vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 1vh;
+}
+
+#EP_ExpeNameInput{
+  position: absolute;
+  top: -0.5vh;
+  right: 1vh;
+  width: 75%;
+  color: grey;
+  cursor: pointer;
+  border: none;
+  height: 3vh;
+  font-size: 2vh;
+  background-color: #202020;
+  border-radius: 5px;
+  padding-left: 1vh;
+}
+
+#EP_addGroupBtn{
+  position: absolute;
+  right: 1vh;
+  line-height: 120%;
+  height: 2vh;
+  width: 7vh;
+  font-size: 1.6vh;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 4px;
+  color: grey;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+#EP_addGroupBtn:hover{
+  color:white;
+  border: 2px solid white;
+}
+
+.EP_GroupContent{
+  height:auto;
+  padding-bottom: -1vh;
+  margin-bottom: 2vh;
+}
+.EP_Group{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 2.5vh;
+  margin-bottom: 1vh;
+}
+.EP_GroupNumber{
+  position:absolute;
+  left:0;
+  font-size: 1.7vh;
+  color: #B5B5B5;
+}
+.EP_GroupName{
+  position: absolute;
+  position: absolute;
+  top: -0.5vh;
+  right: 4vh;
+  width: 68%;
+  color: grey;
+  cursor: pointer;
+  border: none;
+  height: 3vh;
+  font-size: 1.7vh;
+  background-color: #202020;
+  border-radius: 5px;
+  padding-left: 1vh;
+}
+.EP_GroupTrash{
+  position: absolute;
+  right: 1vh;
+  width: 2vh;
+  height: 2vh;
+  background-color: red;
+}
+
+
+/******************************************************* Profile manager Page */
+
+#PM_profileManagerList{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-top: 3vh;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.PM_profileManagerItemContainer_{
+  position: relative;
+  height: 3vh;
+  width: 100%;
+  margin-bottom: 2vh;
+}
+.PM_profileManager_trashIcons_{
+  position: absolute;
+  left:0;
+  height: 2vh;
+  width: 2vh;
+}
+.PM_profileManager_NameExpe_{
+  position: absolute;
+  left: 3vh;
+  top: -0.2vh;
+  font-size: 2vh;
+  color: #B5B5B5;
+}
+
+#PM_profileManager_EmptyList{
+  position: relative;
+  width: 100%;
+  color: #B5B5B5;
+}
+
+
+/************************************************************** Settings Page */
+
+#S_directory_titleContainer{
+  position: relative;
+  margin-bottom: 3vh;
+}
+
+#S_directoryContentContainer{
+  position: relative;
+  width: 100%;
+  margin-bottom: 5vh;
+}
+#S_directoryValue{
+  left: 7vh;
+}
+#S_directoryBtn{
+  position: absolute;
+  right: 1vh;
+  top: -0.5vh;
+  line-height: 90%;
+  height: 3vh;
+  width: 4vh;
+  font-size: 2vh;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 4px;
+  color: grey;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+#S_directoryBtn:hover{
+  color:white;
+  border: 2px solid white;
+}
+
+#S_DS_titleContainer{
+  position: relative;
+  margin-bottom: 3vh;
+}
+.S_DS_btnContainer{
+  position: absolute;
+  width: 30vh;
+  left: 10vh;
+  top: -0.5vh;
+}
+
+
+/************************************************************ Criteria Module */
+
+#CM_selectCriteriasContainer{
+  position: relative;
+  top: -3vh;
+  left: 3vh;
+  height: 22vh;
+}
+
+
+
+
+
+
+
+
+#profileWindow_container{
+  margin-top: 15%;
+  height: 800px;
+  width: 600px;
+  border: dashed 2px;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+#closeProfileWindow{
+  float: right;
+}
+
+
+
+#createProfileTitle, #createProfileLabel, #createProfileInput{
+  width: 100%;
+  margin-top: 2%;
+}
+
+
+
+#createProfileTitle{
+    font-size: 20px;
+}
+
+#addGroupBtn{
+  margin-top: 3%;
+  height: 20px;
+  width: 80px;
+}
+
+#createProfileBtn{
+  margin-top: 20%;
+  margin-left: 10%;
+  font-size: 25px;
+  height: 25px;
+  width: 80px;
+}
+
+#manageProfileContainer{
+  margin-left: 15%;
+  margin-right: 15%;
+  height: 30%;
+  border : solid 2px red;
+}
 
 /******************************************************************************* Homepage */
 
@@ -84,7 +693,6 @@ body {
 .nextBtnElement_container_{
   position: relative;
   width: 100%;
-  height: auto;
   text-align: center;
   height: 100px;
   line-height: 150px;

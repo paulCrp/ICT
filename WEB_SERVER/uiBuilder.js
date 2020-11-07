@@ -213,12 +213,8 @@ function showHomepage(){
     addElement("div", document.getElementById("S_directoryContainer"), "S_directoryContentContainer");
     addElement("div", document.getElementById("S_directoryContentContainer"), "S_directoryName", "W_elementLabel", "Path :");
     addElement("div", document.getElementById("S_directoryContentContainer"), "S_directoryValue", "W_elementLabel", "test directory");
-    addElement("input", document.getElementById("S_directoryContentContainer"), "S_directoryBtn", "None", "...");
-    attribute1 = document.createAttribute("webkitdirectory");
-    attribute2 = document.createAttribute("multiple");
-    document.getElementById("S_directoryBtn").type = "file";
-    document.getElementById("S_directoryBtn").setAttribute("webkitdirectory", "true");
-    document.getElementById("S_directoryBtn").setAttribute("multiple", "true");
+    addElement("div", document.getElementById("S_directoryContentContainer"), "S_directoryBtn", "None", "...");
+    document.getElementById("S_directoryBtn").addEventListener("click", function{ sendDatasToPython("FinderFolder") })
     // DEFAULTS Settings (DS) CONTAINER
     addElement("div", document.getElementById("AW_content"), "S_DSContainer", "W_submodule");
       // DS title
@@ -243,56 +239,6 @@ function showHomepage(){
     addElement("div", document.getElementById("S_DSContentContainer"), "S_DSContentcriteriaContainer", "W_elementContainer");
     addElement("div", document.getElementById("S_DSContentcriteriaContainer"), "S_DS_selectCriterias", "W_elementLabel", "Selected criterias : ");
     buildCriteriasBox(document.getElementById("S_DSContentContainer"));
-
-    /*
-      addElement("div", document.getElementById("AW_content"), "FANTOME_1","FANTOME");
-      addElement("div", document.getElementById("FANTOME_1"), "LOGO_ROUE_CRANTEE_ET_SETTINGS", "None", "RC + SETTINGS");
-      addElement("div", document.getElementById("FANTOME_1"), "GREY_CROSS","None", "X");
-
-      addElement("div", document.getElementById("AW_content"), "FANTOME_2","FANTOME");
-        addElement("div", document.getElementById("FANTOME_2"), "DIRECTORY", "None", "DIRECTORY");
-        addElement("div", document.getElementById("FANTOME_2"), "LINE_2", "LINE");
-        addElement("div", document.getElementById("FANTOME_2"), "SAVE_PROFILS","None","Save profils and resulsts in: ");
-        addElement("div", document.getElementById("FANTOME_2"), "ADRESSE","None","C:\\... _ _ _ _  _ _ _ _ _ _ _ _ ");
-        addElement("div", document.getElementById("FANTOME_2"), "CLIC_ADRESSE","BUTUN_0"," . . . ");
-
-      addElement("div", document.getElementById("AW_content"), "FANTOME_3","FANTOME");
-
-        addElement("div", document.getElementById("FANTOME_3"),"DEFAULTS_SETTINGS", "None", "DEFAULTS SETTINGS");
-        addElement("div", document.getElementById("FANTOME_3"), "LINE_3", "LINE");
-
-        addElement("div", document.getElementById("FANTOME_3"), "LANGAGE", "None", "Langage");
-          addElement("div", document.getElementById("LANGAGE"), "EN_LANG", "BUTUN_0", "En");
-          addElement("div", document.getElementById("LANGAGE"), "FR_LANG", "BUTUN_0", "Fr");
-
-        addElement("div", document.getElementById("FANTOME_3"), "VERSION", "None", "Version");
-          addElement("div", document.getElementById("VERSION"), "EXPANDED", "BUTUN_0", "Expanded");
-          addElement("div", document.getElementById("VERSION"), "SHORT", "BUTUN_0", "Short");
-
-        addElement("div", document.getElementById("FANTOME_3"), "CRITERES", "None", "Criterias");
-          addElement("div", document.getElementById("CRITERES"), "BOUTON_ALL", "BUTUN_1");
-          addElement("div", document.getElementById("CRITERES"), "BOX_ALL", "BOX_CRITERES", "All");
-
-          addElement("div", document.getElementById("CRITERES"), "BOUTON_MENTAL", "BUTUN_1");
-          addElement("div", document.getElementById("CRITERES"), "BOX_MENTAL", "BOX_CRITERES", "Mental Demand");
-
-          addElement("div", document.getElementById("CRITERES"), "BOUTON_PHYSICAL", "BUTUN_1");
-          addElement("div", document.getElementById("CRITERES"), "BOX_PHYSICAL", "BOX_CRITERES", "Physical Demand");
-
-          addElement("div", document.getElementById("CRITERES"), "BOUTON_TEMPORAL", "BUTUN_1");
-          addElement("div", document.getElementById("CRITERES"), "BOX_TEMPORAL", "BOX_CRITERES", "Temporal Demand");
-
-          addElement("div", document.getElementById("CRITERES"), "BOUTON_PERFORMANCE", "BUTUN_1");
-          addElement("div", document.getElementById("CRITERES"), "BOX_PERFORMANCE", "BOX_CRITERES", "Performance Demand");
-
-          addElement("div", document.getElementById("CRITERES"), "BOUTON_EFFORT", "BUTUN_1");
-          addElement("div", document.getElementById("CRITERES"), "BOX_EFFORT", "BOX_CRITERES", "Effort Demand");
-
-          addElement("div", document.getElementById("CRITERES"), "BOUTON_FRUSTRATION", "BUTUN_1");
-          addElement("div", document.getElementById("CRITERES"), "BOX_FRUSTRATION", "BOX_CRITERES", "Frustration Demand");
-
-        addElement("div", document.getElementById("FANTOME_3"), "SAVE_BUTON", "None", "Save");
-        */
   }
   function buildUI_profilManager(){
     // a modif !!!!!!!

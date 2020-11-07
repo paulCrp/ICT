@@ -128,12 +128,12 @@ function calculateSumCoef(){
 
 var feedback_scores = null; // ! possible de suprimer??
 // Fonction d'envoie des donnée à python
-function sendDatasToPython(){
+function sendDatasToPython(datas){
   // Création du channel
   new QWebChannel(qt.webChannelTransport, function(channel) {
     // Construction de l'object "channel"
     feedback_scores = channel.objects.feedback_scores;
     // Fonction d'envoi des données
-    feedback_scores.getRef(JSON.stringify(scores));
+    feedback_scores.getRef(JSON.stringify(datas));
   });
 }

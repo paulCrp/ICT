@@ -1,5 +1,12 @@
 Note for Dev Team
 
+{ need :
+pip install PyQt5
+pip install pyqt5-tools
+
+on CAER laptop 05 add "C:\Users\Paul\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\Scripts\" before
+}
+
 command in cmd to make ressource.py file from .qrc file :
 
 pyrcc5 -o _resourcesJS.py _resourcesJS/_resources.qrc
