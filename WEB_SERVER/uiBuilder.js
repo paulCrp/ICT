@@ -213,7 +213,12 @@ function showHomepage(){
     addElement("div", document.getElementById("S_directoryContainer"), "S_directoryContentContainer");
     addElement("div", document.getElementById("S_directoryContentContainer"), "S_directoryName", "W_elementLabel", "Path :");
     addElement("div", document.getElementById("S_directoryContentContainer"), "S_directoryValue", "W_elementLabel", "test directory");
-    addElement("div", document.getElementById("S_directoryContentContainer"), "S_directoryBtn", "None", "...");
+    addElement("input", document.getElementById("S_directoryContentContainer"), "S_directoryBtn", "None", "...");
+    attribute1 = document.createAttribute("webkitdirectory");
+    attribute2 = document.createAttribute("multiple");
+    document.getElementById("S_directoryBtn").type = "file";
+    document.getElementById("S_directoryBtn").setAttribute("webkitdirectory", "true");
+    document.getElementById("S_directoryBtn").setAttribute("multiple", "true");
     // DEFAULTS Settings (DS) CONTAINER
     addElement("div", document.getElementById("AW_content"), "S_DSContainer", "W_submodule");
       // DS title
