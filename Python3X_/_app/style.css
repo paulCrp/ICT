@@ -1,9 +1,14 @@
 /******************************************************************************* HTML */
+html {
+  height:100%;
+}
 
 body {
   /*background-color: #0E0E0E;*/
   position: absolute;
-  background-color: #346a99;
+  /*background-color: #346a99;
+  background: linear-gradient(135deg, #CD5C5C 20%, #9F76CA 110%);*/
+  background: linear-gradient(135deg, #2D6E96 20%, #04273D 110%);
   color: black;
   margin: 0;
   padding: 0;
@@ -22,7 +27,7 @@ body {
 #HEADER{
   position: relative;
   display:inline-block;
-  background-color: black;
+  background-color: "transparent";
   width: 100%;
   height: 20px;
 }
@@ -77,7 +82,7 @@ body {
 }
 .W_sepaline{
   position: relative;
-  height: 0.2vh;
+  height: 1px;
   width: 100%;
   background-color: #B5B5B5;
 }
@@ -124,17 +129,19 @@ body {
   position: relative;
   display: inline-block;
   width: 80%;
-  margin-top: 3vh;
+  height: 15px;
+  margin-bottom: 0.5vh;
 }
 .W_criteriaCheckbox{
   position: absolute;
-  left:0;
+  left:0
 }
 .W_criteriaChoice{
   position: absolute;
   left: 4vh;
+  bottom:0;
   color: #B5B5B5;
-  font-size: 1.7vh;
+  font-size: 10px;
 }
 
 
@@ -157,7 +164,7 @@ body {
 #HPAGE_title_container{
   position: relative;
   display: inline-block;
-  height: 25%;
+  height: 15%;
   width: 100%;
   margin-top: 2vh;
   margin-bottom: 6vh;
@@ -202,7 +209,7 @@ body {
 }
 #HPAGE_sepaLine{
   background-color: #B5B5B5;
-  height: 0.1vh;
+  height: 1px;
   position: relative;
   top : 100%;
   margin-bottom: 15%;
@@ -260,6 +267,9 @@ body {
   color : #B5B5B5;
   font-size: 2vh;
 }
+#HPAGE_errorLabel{
+  color: #CB2121;
+}
 
 .HPAGE_elementBtnContainer{
   position: absolute;
@@ -272,6 +282,7 @@ body {
   position: relative;
   display: inline-block;
   text-align: center;
+  margin-top: 5%;
   width: 100%;
   /*margin-left: 30%;*/
   height: 10%;
@@ -307,11 +318,13 @@ body {
 
 /* PARAMETERS */
 #HPAGE_parametersContainer{
-  position: absolute;
-  bottom: 0;
-  left: 15%;
+  position: relative;
+  display: inline-block;
+  /*bottom: 0;*/
+  left: 12%;
   height: 8%;
   width: 70%;
+  margin-bottom: 5%;
 }
 .HPAGE_iconMain{
   position: absolute;
@@ -376,6 +389,50 @@ body {
   opacity: 0;
   transition-duration: .3s;
 	transition-timing-function: cubic-bezier(0, 0, 0.5, 1);
+}
+
+#AW_LIST_content{
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 80%;
+  left: 10%;
+  opacity: 0;
+  transition-duration: .3s;
+  transition-timing-function: cubic-bezier(0, 0, 0.5, 1);
+}
+#AW_LIST_mylist{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 80%;
+  max-width: 60%;
+  overflow-y: auto;
+  overflow-x:hidden;
+}
+.AW_LIST_mylistElementContainer{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 3.5vh;
+  margin-bottom: 1vh;
+}
+.AW_LIST_mylistElementIcon{
+  position: absolute;
+  height: 3.5vh;
+  width: 3.5vh;
+  left: 0;
+  background-color: blue;
+}
+.AW_LIST_mylistElementName{
+  position: absolute;
+  white-space: nowrap;
+  height: 3.5vh;
+  font-size: 3.5vh;
+  left: 6vh;
+  color: white;
+  cursor: pointer;
 }
 
 
@@ -477,6 +534,10 @@ body {
   background-color: red;
 }
 
+#EP_displayError{
+  color: #CB2121;
+}
+
 
 /******************************************************* Profile manager Page */
 
@@ -526,7 +587,6 @@ body {
 #S_directoryContentContainer{
   position: relative;
   width: 100%;
-  margin-bottom: 5vh;
 }
 #S_directoryValue{
   left: 7vh;
@@ -551,6 +611,13 @@ body {
   color:white;
   border: 2px solid white;
 }
+#S_directoryerror{
+  position: relative;
+  top: 4vh;
+  color: #CB2121;
+  font-size: 2vh;
+  height: 2vh;
+}
 
 #S_DS_titleContainer{
   position: relative;
@@ -563,12 +630,19 @@ body {
   top: -0.5vh;
 }
 
+#S_DSContentContainer{
+  padding-top: 1vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x:hidden;
+}
 
 /************************************************************ Criteria Module */
 
 #CM_selectCriteriasContainer{
   position: relative;
-  top: -3vh;
   left: 3vh;
   height: 22vh;
 }

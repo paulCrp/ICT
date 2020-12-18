@@ -212,9 +212,8 @@ function showHomepage(){
       // Directory CONTENT
     addElement("div", document.getElementById("S_directoryContainer"), "S_directoryContentContainer");
     addElement("div", document.getElementById("S_directoryContentContainer"), "S_directoryName", "W_elementLabel", "Path :");
-    addElement("div", document.getElementById("S_directoryContentContainer"), "S_directoryValue", "W_elementLabel", "test directory");
+    addElement("div", document.getElementById("S_directoryContentContainer"), "S_directoryValue", "W_elementLabel", "");
     addElement("div", document.getElementById("S_directoryContentContainer"), "S_directoryBtn", "None", "...");
-    document.getElementById("S_directoryBtn").addEventListener("click", function{ sendDatasToPython("FinderFolder") })
     // DEFAULTS Settings (DS) CONTAINER
     addElement("div", document.getElementById("AW_content"), "S_DSContainer", "W_submodule");
       // DS title
